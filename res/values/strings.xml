@@ -48,6 +48,6 @@
     <!-- General -->
     <string name="OK">OK</string>
     <string name="AboutAlertTitle">About Latitude Shortcuts</string>
-    <string name="AboutAlertMessage">		Source soon to be released.</string>
+    <string name="AboutAlertMessage">Latitude Shortcuts unlocks direct access to the Google Latitude functionality inside Google Maps through this application or the shortcuts it creates.\n\nThis app is in no way affiliated with Google Maps, Google Latitude, or any Google product.\n\nThe source code will eventually be released.</string>
 
 </resources>
