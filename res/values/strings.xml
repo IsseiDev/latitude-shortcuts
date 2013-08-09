@@ -1,4 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Latitude Check In</string>
+
+    <string name="title">Latitude Check In Shortcut Creator</string>
+    <string name="about">About</string>
+
+	<string name="Description">This application will create a Check In shortcut on your desktop to be used for directly invoking a Google Latitude Check In.</string>
+
+	<string name="CreateCheckInButtonText">Check In</string>
+	<string name="CreateListButtonText">Friends</string>
+	<string name="CreateHistoryButtonText">History</string>
+	<string name="CreatePlacesButtonText">Places</string>
+	<string name="CreateAllButtonText">All</string>
+
+    <string name="OK">OK</string>
+
+    <string name="InstalledAlertMessage">
+		Your shortcut is named %1$s
+	</string>
+
+    <string name="AboutAlertTitle">About</string>
+    <string name="AboutAlertMessage">This is About text</string>
+
+    <string name="TitleCheckin">Check In</string>
+    <string name="LatitudeCheckinURI">latitude://latitude/checkin</string>
+
+    <string name="TitleList">Friends</string>
+    <string name="LatitudeListURI">latitude://latitude/list</string>
+
+    <string name="TitleHistory">History</string>
+    <string name="LatitudeHistoryURI">latitude://latitude/location-history</string>
+
+    <string name="TitlePlaces">Places</string>
+    <string name="LatitudePlacesURI">latitude://latitude/manage-places</string>
+
 </resources>
