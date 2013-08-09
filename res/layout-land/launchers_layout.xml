@@ -12,77 +12,71 @@
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:weightSum="5" >
+        android:layout_height="fill_parent" >
 
         <TableRow
             android:id="@+id/tableRow1"
             android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="2"
             android:weightSum="2" >
 
             <Button
                 android:id="@+id/LaunchCheckinButton"
-                android:layout_width="0dip"
+                android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
-                android:drawableTop="@drawable/ic_checkin"
-                android:lines="2"
+                android:drawableLeft="@drawable/ic_checkin"
                 android:onClick="onLaunchClick"
-                android:paddingTop="32sp"
+                android:paddingLeft="48sp"
                 android:text="@string/LaunchCheckInButtonText"
-                android:textSize="10pt" />
+                android:textSize="8pt" />
 
             <Button
                 android:id="@+id/LaunchListButton"
-                android:layout_width="0dip"
+                android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
-                android:drawableTop="@drawable/ic_list"
-                android:lines="2"
+                android:drawableLeft="@drawable/ic_list"
                 android:onClick="onLaunchClick"
-                android:paddingTop="32sp"
+                android:paddingLeft="48sp"
                 android:text="@string/LaunchListButtonText"
-                android:textSize="10pt" />
+                android:textSize="8pt" />
         </TableRow>
 
         <TableRow
             android:id="@+id/tableRow2"
             android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:layout_weight="2"
-            android:weightSum="2" >
+            android:layout_height="wrap_content"
+            android:layout_weight="2" >
 
             <Button
                 android:id="@+id/LaunchHistoryButton"
-                android:layout_width="0dip"
+                android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
-                android:drawableTop="@drawable/ic_history"
-                android:lines="2"
+                android:drawableLeft="@drawable/ic_history"
                 android:onClick="onLaunchClick"
-                android:paddingTop="32sp"
+                android:paddingLeft="48sp"
                 android:text="@string/LaunchHistoryButtonText"
-                android:textSize="10pt" />
+                android:textSize="8pt" />
 
             <Button
                 android:id="@+id/LaunchPlacesButton"
-                android:layout_width="0dip"
+                android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
-                android:drawableTop="@drawable/ic_places"
-                android:lines="2"
+                android:drawableLeft="@drawable/ic_places"
                 android:onClick="onLaunchClick"
-                android:paddingTop="32sp"
+                android:paddingLeft="48sp"
                 android:text="@string/LaunchPlacesButtonText"
-                android:textSize="10pt" />
+                android:textSize="8pt" />
         </TableRow>
 
         <TableRow
             android:id="@+id/tableRow3"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1" >
 
             <Button
@@ -92,9 +86,9 @@
                 android:layout_weight="1"
                 android:drawableLeft="@drawable/ic_launcher"
                 android:onClick="onAboutClick"
-                android:paddingLeft="48sp"
+                android:paddingLeft="96sp"
                 android:text="@string/about"
-                android:textSize="10pt" />
+                android:textSize="8pt" />
         </TableRow>
     </TableLayout>
 

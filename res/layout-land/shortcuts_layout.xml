@@ -13,24 +13,24 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        android:weightSum="6" >
+        android:weightSum="2" >
 
         <TableRow
             android:id="@+id/tableRow1"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:layout_weight="2"
-            android:weightSum="2" >
+            android:layout_weight="1"
+            android:weightSum="3" >
 
             <Button
                 android:id="@+id/CreateCheckInButton"
                 android:layout_width="0dip"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
-                android:drawableTop="@drawable/ic_checkin"
+                android:drawableLeft="@drawable/ic_checkin"
                 android:lines="2"
                 android:onClick="onCreateShortcutClick"
-                android:paddingTop="24sp"
+                android:paddingLeft="24sp"
                 android:text="@string/CreateCheckInButtonText"
                 android:textSize="8pt" />
 
@@ -39,11 +39,22 @@
                 android:layout_width="0dip"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
-                android:drawableTop="@drawable/ic_list"
+                android:drawableLeft="@drawable/ic_list"
                 android:lines="2"
                 android:onClick="onCreateShortcutClick"
-                android:paddingTop="24sp"
+                android:paddingLeft="24sp"
                 android:text="@string/CreateListButtonText"
+                android:textSize="8pt" />
+
+            <Button
+                android:id="@+id/CreateAllButton"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/ic_all"
+                android:onClick="onCreateAllClick"
+                android:paddingLeft="24sp"
+                android:text="@string/CreateAllButtonText"
                 android:textSize="8pt" />
         </TableRow>
 
@@ -51,18 +62,18 @@
             android:id="@+id/tableRow2"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:layout_weight="2"
-            android:weightSum="2" >
+            android:layout_weight="1"
+            android:weightSum="3" >
 
             <Button
                 android:id="@+id/CreateHistoryButton"
                 android:layout_width="0dip"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
-                android:drawableTop="@drawable/ic_history"
+                android:drawableLeft="@drawable/ic_history"
                 android:lines="2"
                 android:onClick="onCreateShortcutClick"
-                android:paddingTop="24sp"
+                android:paddingLeft="24sp"
                 android:text="@string/CreateHistoryButtonText"
                 android:textSize="8pt" />
 
@@ -71,48 +82,21 @@
                 android:layout_width="0dip"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
-                android:drawableTop="@drawable/ic_places"
+                android:drawableLeft="@drawable/ic_places"
                 android:lines="2"
                 android:onClick="onCreateShortcutClick"
-                android:paddingTop="24sp"
+                android:paddingLeft="24sp"
                 android:text="@string/CreatePlacesButtonText"
                 android:textSize="8pt" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tableRow3"
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:layout_weight="2"
-            android:weightSum="1" >
-
-            <Button
-                android:id="@+id/CreateAllButton"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:drawableLeft="@drawable/ic_all"
-                android:onClick="onCreateAllClick"
-                android:paddingLeft="32sp"
-                android:text="@string/CreateAllButtonText"
-                android:textSize="8pt" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tableRow4"
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:layout_weight="2"
-            android:weightSum="1" >
 
             <Button
                 android:id="@+id/AboutButton"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="0dip"
+                android:layout_height="fill_parent"
                 android:layout_weight="1"
                 android:drawableLeft="@drawable/ic_launcher"
                 android:onClick="onAboutClick"
-                android:paddingLeft="32sp"
+                android:paddingLeft="24sp"
                 android:text="@string/about"
                 android:textSize="8pt" />
         </TableRow>

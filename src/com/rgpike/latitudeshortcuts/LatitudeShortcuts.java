@@ -1,6 +1,5 @@
 package com.rgpike.latitudeshortcuts;
 
-import android.app.Activity;
 import android.app.TabActivity;
 
 import android.os.Bundle;

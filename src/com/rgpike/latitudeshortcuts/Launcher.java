@@ -1,16 +1,11 @@
 package com.rgpike.latitudeshortcuts;
 
-import android.app.Activity;
 import android.app.AlertDialog;
-
-import android.os.Bundle;
 
 import android.content.Intent;
 import android.content.Intent.ShortcutIconResource;
 import android.content.DialogInterface;
 import android.content.Context;
-
-import android.view.View;
 
 import android.widget.TextView;
 

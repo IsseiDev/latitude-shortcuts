@@ -25,10 +25,10 @@
                 android:layout_width="0dip"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
-                android:drawableTop="@drawable/ic_checkin"
+                android:drawableLeft="@drawable/ic_checkin"
                 android:lines="2"
                 android:onClick="onWidgetClick"
-                android:paddingTop="32sp"
+                android:paddingLeft="32sp"
                 android:text="@string/WidgetCheckInButtonText"
                 android:textSize="10pt" />
 
@@ -37,10 +37,10 @@
                 android:layout_width="0dip"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
-                android:drawableTop="@drawable/ic_list"
+                android:drawableLeft="@drawable/ic_list"
                 android:lines="2"
                 android:onClick="onWidgetClick"
-                android:paddingTop="32sp"
+                android:paddingLeft="32sp"
                 android:text="@string/WidgetListButtonText"
                 android:textSize="10pt" />
         </TableRow>
@@ -56,10 +56,10 @@
                 android:layout_width="0dip"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
-                android:drawableTop="@drawable/ic_history"
+                android:drawableLeft="@drawable/ic_history"
                 android:lines="2"
                 android:onClick="onWidgetClick"
-                android:paddingTop="32sp"
+                android:paddingLeft="32sp"
                 android:text="@string/WidgetHistoryButtonText"
                 android:textSize="10pt" />
 
@@ -68,10 +68,10 @@
                 android:layout_width="0dip"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
-                android:drawableTop="@drawable/ic_places"
+                android:drawableLeft="@drawable/ic_places"
                 android:lines="2"
                 android:onClick="onWidgetClick"
-                android:paddingTop="32sp"
+                android:paddingLeft="32sp"
                 android:text="@string/WidgetPlacesButtonText"
                 android:textSize="10pt" />
         </TableRow>
