@@ -10,13 +10,14 @@ import android.net.Uri;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.view.View;
+import android.view.Window;
 
 public class LatitudeShortcuts extends Activity
 {
-    /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
     }
