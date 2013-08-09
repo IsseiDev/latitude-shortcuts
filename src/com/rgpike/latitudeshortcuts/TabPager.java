@@ -37,10 +37,7 @@ public abstract class TabPager extends FragmentActivity implements TabHost.OnTab
 	public abstract TabSet[] getTabSet();
 	public abstract int getViewPagerId();
 
-	private ViewPager viewPager;
-	private PagerAdapter pagerAdapter;
-
-	private TabSpec lastTabUsed = null;
+	private ViewPager mViewPager;
 
 	private class PagerAdapter extends FragmentPagerAdapter
 	{
@@ -85,6 +82,7 @@ public abstract class TabPager extends FragmentActivity implements TabHost.OnTab
 		super.onCreate(savedInstanceState);
     }
 
+	/** Intializes TabHost, Fragments, ViewPager for execution */
 	public void startTabPager()
 	{
 		List<Fragment> fragments = new Vector<Fragment>();
@@ -117,12 +115,12 @@ public abstract class TabPager extends FragmentActivity implements TabHost.OnTab
 			fragments.add(f);
 		}
 
-		pagerAdapter = new PagerAdapter(
+		PagerAdapter pagerAdapter = new PagerAdapter(
 			getSupportFragmentManager(), fragments);
 
-		viewPager = (ViewPager) findViewById(getViewPagerId());
-		viewPager.setAdapter(pagerAdapter);
-		viewPager.setOnPageChangeListener(this);
+		mViewPager = (ViewPager) findViewById(getViewPagerId());
+		mViewPager.setAdapter(pagerAdapter);
+		mViewPager.setOnPageChangeListener(this);
 	
 		Log.d(TAG, "All TabSpecs added to TabHost");
 
@@ -132,12 +130,7 @@ public abstract class TabPager extends FragmentActivity implements TabHost.OnTab
 	public void onTabChanged(String tag)
 	{
 		int pos = getTabHost().getCurrentTab();
-		viewPager.setCurrentItem(pos);
-	}
-
-	@Override
-	public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels)
-	{
+		mViewPager.setCurrentItem(pos);
 	}
 
 	@Override
@@ -148,6 +141,11 @@ public abstract class TabPager extends FragmentActivity implements TabHost.OnTab
 
 	@Override
 	public void onPageScrollStateChanged(int state)
+	{
+	}
+
+	@Override
+	public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels)
 	{
 	}
 }

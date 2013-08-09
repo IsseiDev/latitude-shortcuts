@@ -13,9 +13,10 @@ import android.widget.Button;
 
 import android.support.v4.app.Fragment;
 
+/* Handles launching of Latitude intents */
 public class LaunchersActivity extends Fragment
 {
-	private LauncherCollection launchers;
+	private LauncherCollection mLaunchers;
 
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 	{
@@ -24,11 +25,19 @@ public class LaunchersActivity extends Fragment
 			return null;
 		}
 
-		launchers = new LauncherCollection(getActivity());
+		mLaunchers = new LauncherCollection(getActivity());
 
 		View v = (LinearLayout) inflater.inflate(R.layout.launchers_layout,
 			container, false);
 
+		setButtonCallbacks(v);
+
+		return v;
+	}
+
+	/* Sets the button clicks to come to this fragment */
+	private void setButtonCallbacks(View v)
+	{
 		for (int i :
 			new int[]
 			{
@@ -59,32 +68,33 @@ public class LaunchersActivity extends Fragment
 				}
 			});
 
-		return v;
 	}
 
+	/** Launch a feature based on the view ID */
 	public void onLaunchClick(View v)
 	{
 		switch (v.getId())
 			{
 			case R.id.LaunchCheckinButton:
-				launchers.getLauncher(
-					LauncherCollection.mapCheckin).LaunchIntent(getActivity());
+				mLaunchers.getLauncher(
+					LauncherCollection.MAP_CHECKIN).LaunchIntent(getActivity());
 				break;
 			case R.id.LaunchListButton:
-				launchers.getLauncher(
-					LauncherCollection.mapList).LaunchIntent(getActivity());
+				mLaunchers.getLauncher(
+					LauncherCollection.MAP_LIST).LaunchIntent(getActivity());
 				break;
 			case R.id.LaunchPlacesButton:
-				launchers.getLauncher(
-					LauncherCollection.mapPlaces).LaunchIntent(getActivity());
+				mLaunchers.getLauncher(
+					LauncherCollection.MAP_PLACES).LaunchIntent(getActivity());
 				break;
 			case R.id.LaunchHistoryButton:
-				launchers.getLauncher(
-					LauncherCollection.mapHistory).LaunchIntent(getActivity());
+				mLaunchers.getLauncher(
+					LauncherCollection.MAP_HISTORY).LaunchIntent(getActivity());
 				break;
 			}
 	}
 
+	/** Show the About dialog */
     public void onAboutClick(View v)
     {
 		About.onAboutClick(getActivity(), v);

@@ -1,13 +1,14 @@
 package com.rgpike.latitudeshortcuts;
 
-import android.view.View;
+import android.app.AlertDialog;
 import android.content.Context;
-import android.widget.TextView;
+import android.content.DialogInterface;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.text.SpannableString;
 import android.text.method.LinkMovementMethod;
 import android.text.util.Linkify;
-import android.text.SpannableString;
-import android.content.DialogInterface;
-import android.app.AlertDialog;
+import android.view.View;
+import android.widget.TextView;
 
 public class About
 {
@@ -43,7 +44,7 @@ public class About
 			versionName = context.getPackageManager().
 				getPackageInfo(context.getPackageName(), 0 ).versionName;
 		}
-		catch(Exception e)
+		catch(NameNotFoundException e)
 		{
 			versionName = "Unknown";
 		}

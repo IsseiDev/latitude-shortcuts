@@ -9,21 +9,22 @@ import android.widget.TabHost.TabSpec;
 
 import android.content.Intent;
 
+/* Handles the main activity */
 public class LatitudeShortcuts extends TabPager
 {
-	private TabHost tabHost;
-	private TabPager.TabSet[] tabs;
+	private TabHost mTabHost;
+	private TabPager.TabSet[] mTabs;
 
 	@Override
 	public TabHost getTabHost()
 	{
-		return tabHost;
+		return mTabHost;
 	}
 
 	@Override
 	public TabPager.TabSet[] getTabSet()
 	{
-		return tabs;
+		return mTabs;
 	}
 
 	@Override
@@ -32,24 +33,25 @@ public class LatitudeShortcuts extends TabPager
 		return R.id.viewpager;
 	}
 
+	/** Initialize the tabs used in the app */
 	private void initTabs()
 	{
-		tabHost = (TabHost) findViewById(android.R.id.tabhost);
-		tabHost.setup();
+		mTabHost = (TabHost) findViewById(android.R.id.tabhost);
+		mTabHost.setup();
 
-		tabs = new TabPager.TabSet[2];
+		mTabs = new TabPager.TabSet[2];
 
-		tabs[0] = new TabPager.TabSet();
-		tabs[0].tabSpec = tabHost.newTabSpec("Launchers");
-		tabs[0].tabSpec.setIndicator(
+		mTabs[0] = new TabPager.TabSet();
+		mTabs[0].tabSpec = mTabHost.newTabSpec("Launchers");
+		mTabs[0].tabSpec.setIndicator(
 			getResources().getString(R.string.TabLaunchers));
-		tabs[0].fragmentClass = LaunchersActivity.class;
+		mTabs[0].fragmentClass = LaunchersActivity.class;
  
-		tabs[1] = new TabPager.TabSet();
-		tabs[1].tabSpec = tabHost.newTabSpec("Shortcuts");
-		tabs[1].tabSpec.setIndicator(
+		mTabs[1] = new TabPager.TabSet();
+		mTabs[1].tabSpec = mTabHost.newTabSpec("Shortcuts");
+		mTabs[1].tabSpec.setIndicator(
 			getResources().getString(R.string.TabShortcuts));
-		tabs[1].fragmentClass = ShortcutsActivity.class;
+		mTabs[1].fragmentClass = ShortcutsActivity.class;
 	}
 
 	@Override

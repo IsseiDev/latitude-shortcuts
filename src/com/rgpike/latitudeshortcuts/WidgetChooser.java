@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.content.Intent;
 import android.view.View;
 
+/** Presents and processes a widget selection screen */
 public class WidgetChooser extends Activity
 {
 	@Override
@@ -14,6 +15,7 @@ public class WidgetChooser extends Activity
 		setContentView(R.layout.widgets_layout);
 	}
 
+	/** Sets a widget/Intent based on view id */
 	public void onWidgetClick(View v)
 	{
 		Intent i = null;
@@ -23,19 +25,19 @@ public class WidgetChooser extends Activity
 			{
 			case R.id.WidgetCheckinButton:
 				i = launchers.getLauncher(
-					LauncherCollection.mapCheckin).GetShortcut(this);
+					LauncherCollection.MAP_CHECKIN).GetShortcut(this);
 				break;
 			case R.id.WidgetListButton:
 				i = launchers.getLauncher(
-					LauncherCollection.mapList).GetShortcut(this);
+					LauncherCollection.MAP_LIST).GetShortcut(this);
 				break;
 			case R.id.WidgetPlacesButton:
 				i = launchers.getLauncher(
-					LauncherCollection.mapPlaces).GetShortcut(this);
+					LauncherCollection.MAP_PLACES).GetShortcut(this);
 				break;
 			case R.id.WidgetHistoryButton:
 				i = launchers.getLauncher(
-					LauncherCollection.mapHistory).GetShortcut(this);
+					LauncherCollection.MAP_HISTORY).GetShortcut(this);
 				break;
 			}
 

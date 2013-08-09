@@ -14,10 +14,12 @@ import android.widget.Button;
 
 import android.support.v4.app.Fragment;
 
+/* Handles the creation of shortcuts */
 public class ShortcutsActivity extends Fragment
 {
-	private LauncherCollection launchers;
+	private LauncherCollection mLaunchers;
 
+	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 	{
 		if (container == null)
@@ -25,11 +27,19 @@ public class ShortcutsActivity extends Fragment
 			return null;
 		}
 
-		launchers = new LauncherCollection(getActivity());
+		mLaunchers = new LauncherCollection(getActivity());
 
 		View v = (LinearLayout) inflater.inflate(R.layout.shortcuts_layout,
 			container, false);
 
+		setButtonCallbacks(v);
+
+		return v;
+	}
+
+	/** Sets up the button callbacks to come to this fragment */
+	private void setButtonCallbacks(View v)
+	{
 		for (int i :
 			new int[]
 			{
@@ -69,44 +79,44 @@ public class ShortcutsActivity extends Fragment
 					onAboutClick(v);
 				}
 			});
-
-		return v;
 	}
 
+	/* Creates a shortcut based on the ID of the view */
 	public void onCreateShortcutClick(View v)
 	{
 		switch (v.getId())
 			{
 			case R.id.CreateCheckInButton:
-				launchers.getLauncher(LauncherCollection.mapCheckin).
+				mLaunchers.getLauncher(LauncherCollection.MAP_CHECKIN).
 					CreateShortcut(getActivity());
-				launchers.getLauncher(LauncherCollection.mapCheckin).
+				mLaunchers.getLauncher(LauncherCollection.MAP_CHECKIN).
 					ShowDialog(getActivity());
 				break;
 			case R.id.CreateHistoryButton:
-				launchers.getLauncher(LauncherCollection.mapHistory).
+				mLaunchers.getLauncher(LauncherCollection.MAP_HISTORY).
 					CreateShortcut(getActivity());
-				launchers.getLauncher(LauncherCollection.mapHistory).
+				mLaunchers.getLauncher(LauncherCollection.MAP_HISTORY).
 					ShowDialog(getActivity());
 				break;
 			case R.id.CreatePlacesButton:
-				launchers.getLauncher(LauncherCollection.mapPlaces).
+				mLaunchers.getLauncher(LauncherCollection.MAP_PLACES).
 					CreateShortcut(getActivity());
-				launchers.getLauncher(LauncherCollection.mapPlaces).
+				mLaunchers.getLauncher(LauncherCollection.MAP_PLACES).
 					ShowDialog(getActivity());
 				break;
 			case R.id.CreateListButton:
-				launchers.getLauncher(LauncherCollection.mapList).
+				mLaunchers.getLauncher(LauncherCollection.MAP_LIST).
 					CreateShortcut(getActivity());
-				launchers.getLauncher(LauncherCollection.mapList).
+				mLaunchers.getLauncher(LauncherCollection.MAP_LIST).
 					ShowDialog(getActivity());
 				break;
 			}
 	}
 
+	/** Creates all the shortcuts on the home screen */
 	public void onCreateAllClick(View v)
 	{
-		for (Launcher l : launchers.getLauncherValues())
+		for (Launcher l : mLaunchers.getLauncherValues())
 		{
 			l.CreateShortcut(getActivity());
 		}
@@ -119,6 +129,7 @@ public class ShortcutsActivity extends Fragment
 			);
 	}
 
+	/** Shows the About dialog */
     public void onAboutClick(View v)
     {
 		About.onAboutClick(getActivity(), v);

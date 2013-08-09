@@ -8,12 +8,12 @@ import java.util.Collection;
 
 public class LauncherCollection
 {
-	public final static String mapCheckin = "checkin";
-	public final static String mapList = "list";
-	public final static String mapPlaces = "places";
-	public final static String mapHistory = "history";
+	public final static String MAP_CHECKIN = "checkin";
+	public final static String MAP_LIST = "list";
+	public final static String MAP_PLACES = "places";
+	public final static String MAP_HISTORY = "history";
 
-	private Map<String, Launcher> l =
+	private Map<String, Launcher> mLauncherCollection =
 		new HashMap<String, Launcher>();
 
 	public LauncherCollection(Context context)
@@ -23,16 +23,16 @@ public class LauncherCollection
 
 	public Collection<Launcher> getLauncherValues()
 	{
-		return l.values();
+		return mLauncherCollection.values();
 	}
 
 	public Launcher getLauncher(String key)
 	{
 		Launcher launcher;
 
-		if (l.containsKey(key))
+		if (mLauncherCollection.containsKey(key))
 		{
-			launcher = l.get(key);
+			launcher = mLauncherCollection.get(key);
 		}
 		else
 		{
@@ -57,7 +57,7 @@ public class LauncherCollection
 					getString(R.string.InstalledAlertMessage),
 				context.getResources().getString(R.string.TitleCheckin))
 			);
-		l.put(LauncherCollection.mapCheckin, launcher);
+		mLauncherCollection.put(LauncherCollection.MAP_CHECKIN, launcher);
 
 		/* Places */
 		launcher = new Launcher(
@@ -70,7 +70,7 @@ public class LauncherCollection
 					getString(R.string.InstalledAlertMessage),
 				context.getResources().getString(R.string.TitlePlaces))
 			);
-		l.put(LauncherCollection.mapPlaces, launcher);
+		mLauncherCollection.put(LauncherCollection.MAP_PLACES, launcher);
 
 		/* Friends List */
 		launcher = new Launcher(
@@ -83,7 +83,7 @@ public class LauncherCollection
 					getString(R.string.InstalledAlertMessage),
 				context.getResources().getString(R.string.TitleList))
 			);
-		l.put(LauncherCollection.mapList, launcher);
+		mLauncherCollection.put(LauncherCollection.MAP_LIST, launcher);
 
 		/* History */
 		launcher = new Launcher(
@@ -96,6 +96,6 @@ public class LauncherCollection
 					getString(R.string.InstalledAlertMessage),
 				context.getResources().getString(R.string.TitleHistory))
 			);
-		l.put(LauncherCollection.mapHistory, launcher);
+		mLauncherCollection.put(LauncherCollection.MAP_HISTORY, launcher);
 	}
 }

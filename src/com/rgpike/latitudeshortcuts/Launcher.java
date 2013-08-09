@@ -7,21 +7,21 @@ import android.content.Intent.ShortcutIconResource;
 import android.content.DialogInterface;
 import android.content.Context;
 
-import android.widget.TextView;
+import android.net.Uri;
 
 import android.text.method.LinkMovementMethod;
 import android.text.util.Linkify;
 import android.text.SpannableString;
 
-import android.net.Uri;
+import android.widget.TextView;
 
 public class Launcher
 {
-	private int iconRes;
-	private String iconTitle;
-	private String intentUri;
-	private String alertTitle;
-	private String alertMessage;
+	private int mIconRes;
+	private String mIconTitle;
+	private String mIntentUri;
+	private String mAlertTitle;
+	private String mAlertMessage;
 
 	public Launcher(int iconRes, String iconTitle, String intentUri, String alertTitle, String alertMessage)
 	{
@@ -34,88 +34,91 @@ public class Launcher
 
 	public int setIconResource(int r)
 	{
-		iconRes = r;
-		return iconRes;
+		mIconRes = r;
+		return mIconRes;
 	}
 
 	public int getIconResource()
 	{
-		return iconRes;
+		return mIconRes;
 	}
 
 	public String setIconTitle(String r)
 	{
-		iconTitle = r;
-		return iconTitle;
+		mIconTitle = r;
+		return mIconTitle;
 	}
 
 	public String getIconTitle()
 	{
-		return iconTitle;
+		return mIconTitle;
 	}
 
 	public String setIntentUri(String r)
 	{
-		intentUri = r;
-		return intentUri;
+		mIntentUri = r;
+		return mIntentUri;
 	}
 
 	public String getIntentUri()
 	{
-		return intentUri;
+		return mIntentUri;
 	}
 
 	public String setAlertTitle(String r)
 	{
-		alertTitle = r;
-		return alertTitle;
+		mAlertTitle = r;
+		return mAlertTitle;
 	}
 
 	public String getAlertTitle()
 	{
-		return alertTitle;
+		return mAlertTitle;
 	}
 
 	public String setAlertMessage(String r)
 	{
-		alertMessage = r;
-		return alertMessage;
+		mAlertMessage = r;
+		return mAlertMessage;
 	}
 
 	public String getAlertMessage()
 	{
-		return alertMessage;
+		return mAlertMessage;
 	}
 
+	/** Launches an Activity based on this class instance */
 	public void LaunchIntent(Context context)
 	{
 		Intent intent = new
 			Intent(Intent.ACTION_VIEW,
-			Uri.parse(intentUri));
+			Uri.parse(mIntentUri));
 		context.startActivity(intent);
 	}
 
+	//** Creates and returns an Intent based on class instance */
 	public Intent GetShortcut(Context context)
 	{
 		Intent shortcut = new
 			Intent("com.android.launcher.action.INSTALL_SHORTCUT");
 
-		shortcut.putExtra(Intent.EXTRA_SHORTCUT_NAME, iconTitle);
+		shortcut.putExtra(Intent.EXTRA_SHORTCUT_NAME, mIconTitle);
 		shortcut.putExtra("duplicate", false);
 
 		Intent intent = new Intent("android.intent.action.VIEW",
-			Uri.parse(intentUri));
+			Uri.parse(mIntentUri));
 		shortcut.putExtra(Intent.EXTRA_SHORTCUT_INTENT,
 			intent);
 
 		ShortcutIconResource icon =
-			Intent.ShortcutIconResource.fromContext(context, iconRes);
+			Intent.ShortcutIconResource.fromContext(context, mIconRes);
 		shortcut.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE,
 			icon);
 
 		return shortcut;
 	}
 
+	/** Creates a shortcut based on class instance */
 	public void CreateShortcut(Context context)
 	{
 		context.sendBroadcast(GetShortcut(context));
@@ -123,13 +126,13 @@ public class Launcher
 
 	public void ShowDialog(Context context)
 	{
-		final SpannableString s = new SpannableString(alertMessage);
+		final SpannableString s = new SpannableString(mAlertMessage);
 		Linkify.addLinks(s, Linkify.ALL);
 
 		AlertDialog alertDialog = new AlertDialog.Builder(context).create();
-		alertDialog.setTitle(iconTitle);
+		alertDialog.setTitle(mIconTitle);
 		alertDialog.setMessage(s);
-		alertDialog.setIcon(iconRes);
+		alertDialog.setIcon(mIconRes);
 		alertDialog.setButton(context.getResources().getString(R.string.OK),
 			new DialogInterface.OnClickListener()
 			{
