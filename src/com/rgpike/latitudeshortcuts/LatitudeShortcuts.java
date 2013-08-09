@@ -22,7 +22,7 @@ public class LatitudeShortcuts extends Activity
         setContentView(R.layout.main);
     }
 
-	private void CreateShortcut(String title, String uri)
+	private void CreateShortcut(ShortcutIconResource iconRes, String title, String uri)
 	{
         Intent shortcut = new
             Intent("com.android.launcher.action.INSTALL_SHORTCUT");
@@ -35,15 +35,13 @@ public class LatitudeShortcuts extends Activity
         shortcut.putExtra(Intent.EXTRA_SHORTCUT_INTENT,
             intent);
 
-        ShortcutIconResource iconRes =
-            Intent.ShortcutIconResource.fromContext(this,
-            R.drawable.ic_launcher);
         shortcut.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE, iconRes);
 
         sendBroadcast(shortcut);
 	}
 
-	private void AlertCompleted(String title, String message)
+
+	private void ShowDialog(String title, String message)
 	{
         AlertDialog alertDialog = new AlertDialog.Builder(this).create();
         alertDialog.setTitle(title);
@@ -59,14 +57,19 @@ public class LatitudeShortcuts extends Activity
         alertDialog.show();
 	}
 
+	private void CreateShortcutAndShowDialog(ShortcutIconResource iconRes, String launcherTitle, String uri, String alertTitle, String alertMessage)
+	{
+		CreateShortcut(iconRes, launcherTitle, uri);
+		ShowDialog(alertTitle, alertMessage);
+	}
+
     public void onCreateCheckInClick(View v)
     {
-		CreateShortcut(
+		CreateShortcutAndShowDialog(
+            Intent.ShortcutIconResource.fromContext(this,
+            	R.drawable.ic_checkin),
             getResources().getString(R.string.TitleCheckin),
-            getResources().getString(R.string.LatitudeCheckinURI)
-			);
-
-		AlertCompleted(
+            getResources().getString(R.string.LatitudeCheckinURI),
             getResources().getString(R.string.TitleCheckin),
 			String.format(
             	getResources().getString(R.string.InstalledAlertMessage),
@@ -76,12 +79,11 @@ public class LatitudeShortcuts extends Activity
 
     public void onCreateListClick(View v)
     {
-		CreateShortcut(
+		CreateShortcutAndShowDialog(
+            Intent.ShortcutIconResource.fromContext(this,
+            	R.drawable.ic_list),
             getResources().getString(R.string.TitleList),
-            getResources().getString(R.string.LatitudeListURI)
-			);
-
-		AlertCompleted(
+            getResources().getString(R.string.LatitudeListURI),
             getResources().getString(R.string.TitleList),
 			String.format(
             	getResources().getString(R.string.InstalledAlertMessage),
@@ -91,12 +93,11 @@ public class LatitudeShortcuts extends Activity
 
     public void onCreateHistoryClick(View v)
     {
-		CreateShortcut(
+		CreateShortcutAndShowDialog(
+            Intent.ShortcutIconResource.fromContext(this,
+            	R.drawable.ic_history),
             getResources().getString(R.string.TitleHistory),
-            getResources().getString(R.string.LatitudeHistoryURI)
-			);
-
-		AlertCompleted(
+            getResources().getString(R.string.LatitudeHistoryURI),
             getResources().getString(R.string.TitleHistory),
 			String.format(
             	getResources().getString(R.string.InstalledAlertMessage),
@@ -106,12 +107,11 @@ public class LatitudeShortcuts extends Activity
 
     public void onCreatePlacesClick(View v)
     {
-		CreateShortcut(
+		CreateShortcutAndShowDialog(
+            Intent.ShortcutIconResource.fromContext(this,
+            	R.drawable.ic_places),
             getResources().getString(R.string.TitlePlaces),
-            getResources().getString(R.string.LatitudePlacesURI)
-			);
-
-		AlertCompleted(
+            getResources().getString(R.string.LatitudePlacesURI),
             getResources().getString(R.string.TitlePlaces),
 			String.format(
             	getResources().getString(R.string.InstalledAlertMessage),
@@ -122,41 +122,41 @@ public class LatitudeShortcuts extends Activity
     public void onCreateAllClick(View v)
     {
 		CreateShortcut(
+            Intent.ShortcutIconResource.fromContext(this,
+            	R.drawable.ic_checkin),
             getResources().getString(R.string.TitleCheckin),
             getResources().getString(R.string.LatitudeCheckinURI)
 			);
 		CreateShortcut(
+            Intent.ShortcutIconResource.fromContext(this,
+            	R.drawable.ic_list),
             getResources().getString(R.string.TitleList),
             getResources().getString(R.string.LatitudeListURI)
 			);
 		CreateShortcut(
+            Intent.ShortcutIconResource.fromContext(this,
+            	R.drawable.ic_history),
             getResources().getString(R.string.TitleHistory),
             getResources().getString(R.string.LatitudeHistoryURI)
 			);
 		CreateShortcut(
+            Intent.ShortcutIconResource.fromContext(this,
+            	R.drawable.ic_places),
             getResources().getString(R.string.TitlePlaces),
             getResources().getString(R.string.LatitudePlacesURI)
 			);
 
-		AlertCompleted("All", "All");
+		ShowDialog(
+            getResources().getString(R.string.TitleAll),
+            getResources().getString(R.string.AllAlertText)
+			);
 	}
 
     public void onAboutClick(View v)
     {
-        AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-        alertDialog.setTitle(
-            getResources().getString(R.string.AboutAlertTitle));
-        alertDialog.setMessage(
-            getResources().getString(R.string.AboutAlertMessage));
-        alertDialog.setButton(getResources().getString(R.string.OK),
-            new DialogInterface.OnClickListener()
-            {
-                public void onClick(DialogInterface dialog, int which)
-                    {
-                    };
-
-            } );
-
-        alertDialog.show();
+		ShowDialog(
+            getResources().getString(R.string.AboutAlertTitle),
+            getResources().getString(R.string.AboutAlertMessage)
+			);
     }
 }

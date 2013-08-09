@@ -5,7 +5,7 @@
     <string name="title">Latitude Shortcut Creator</string>
     <string name="about">About</string>
 
-	<string name="Description">Create Google Latitude shortcuts on your home screen by choosing from the shortcuts below or choose All to create all shortcuts.
+	<string name="Description">Create Google Latitude shortcuts on your home screen by choosing from the shortcuts below or choose All Shortcuts for the entire collection.
 		</string>
 		
 	<string name="CreateCheckInButtonText">Check In</string>
@@ -20,8 +20,10 @@
 		Your shortcut is named %1$s
 	</string>
 
-    <string name="AboutAlertTitle">About</string>
-    <string name="AboutAlertMessage">This is About text</string>
+    <string name="AboutAlertTitle">About Latitude Shortcut Creator</string>
+    <string name="AboutAlertMessage">
+		This is About text
+	</string>
 
     <string name="TitleCheckin">Check In</string>
     <string name="LatitudeCheckinURI">latitude://latitude/checkin</string>
@@ -34,5 +36,8 @@
 
     <string name="TitlePlaces">Places</string>
     <string name="LatitudePlacesURI">latitude://latitude/manage-places</string>
+
+    <string name="TitleAll">All Shortcuts</string>
+    <string name="AllAlertText">All shortcuts have been installed</string>
 
 </resources>
