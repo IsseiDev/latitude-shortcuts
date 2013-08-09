@@ -27,62 +27,102 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
 	android:weightSum="6"
-	android:gravity="center"
     >
+<!--
+	android:gravity="center"
+-->
+
+<LinearLayout
+	android:id="@+id/linearLayout2"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:orientation="horizontal"
+	android:layout_weight="2"
+>
 
 <Button
     android:id="@+id/CreateCheckInButton"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-	android:layout_weight="1"
-	android:textSize="10pt"
+    android:layout_height="fill_parent"
+	android:textSize="8pt"
     android:text="@string/CreateCheckInButtonText"
-    android:onClick="onCreateShortcutClick" />
+    android:onClick="onCreateShortcutClick"
+	android:paddingTop="24sp"
+	android:drawableTop="@drawable/ic_checkin"
+	android:layout_weight="1"
+/>
 
 <Button
     android:id="@+id/CreateListButton"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-	android:layout_weight="1"
-	android:textSize="10pt"
+    android:layout_height="fill_parent"
+	android:textSize="8pt"
     android:text="@string/CreateListButtonText"
-    android:onClick="onCreateShortcutClick" />
+    android:onClick="onCreateShortcutClick"
+	android:paddingTop="24sp"
+	android:drawableTop="@drawable/ic_list"
+	android:layout_weight="1"
+/>
+
+</LinearLayout>
+
+<LinearLayout
+	android:id="@+id/linearLayout2"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:orientation="horizontal"
+	android:layout_weight="2"
+>
 
 <Button
     android:id="@+id/CreateHistoryButton"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-	android:layout_weight="1"
-	android:textSize="10pt"
+    android:layout_height="fill_parent"
+	android:textSize="8pt"
     android:text="@string/CreateHistoryButtonText"
-    android:onClick="onCreateShortcutClick" />
+    android:onClick="onCreateShortcutClick"
+	android:paddingTop="24sp"
+	android:drawableTop="@drawable/ic_history"
+	android:layout_weight="1"
+/>
 
 <Button
     android:id="@+id/CreatePlacesButton"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-	android:layout_weight="1"
-	android:textSize="10pt"
+    android:layout_height="fill_parent"
+	android:textSize="8pt"
     android:text="@string/CreatePlacesButtonText"
-    android:onClick="onCreateShortcutClick" />
+    android:onClick="onCreateShortcutClick"
+	android:paddingTop="24sp"
+	android:drawableTop="@drawable/ic_places"
+	android:layout_weight="1"
+/>
+
+</LinearLayout>
 
 <Button
     android:id="@+id/CreateAllButton"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
 	android:layout_weight="1"
-	android:textSize="10pt"
+	android:textSize="8pt"
     android:text="@string/CreateAllButtonText"
-    android:onClick="onCreateAllClick" />
+    android:onClick="onCreateAllClick"
+	android:paddingLeft="32sp"
+	android:drawableLeft="@drawable/ic_launcher"
+/>
 
 <Button
     android:id="@+id/AboutButton"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
 	android:layout_weight="1"
-	android:textSize="10pt"
+	android:textSize="8pt"
     android:text="@string/about"
-    android:onClick="onAboutClick" />
+    android:onClick="onAboutClick"
+	android:paddingLeft="32sp"
+	android:drawableLeft="@drawable/ic_launcher"
+/>
 
 </LinearLayout>
 </LinearLayout>
