@@ -1,51 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">Latitude Shortcuts</string>
-
     <string name="title">Latitude Shortcuts</string>
-
-	<string name="widget_checkin">Latitude Check In</string>
-	<string name="widget_list">Latitude Friends</string>
-	<string name="widget_history">Latitude History</string>
-	<string name="widget_places">Latitude Places</string>
 
     <string name="about">About</string>
 
+	<!-- Launchers -->
+	<string name="LauncherDescription">
+		Launch Google Latitude from here.
+	</string>
 
-	<string name="Description">Create Google Latitude shortcuts on your home screen by choosing from the shortcuts below. Choose All Shortcuts for the entire collection.
-		</string>
-	<string name="LauncherDescription">Launch Google Latitude from here.
-		</string>
-		
+	<!-- Shortcuts -->
+	<string name="ShortcutsDescription">
+		Create Google Latitude shortcuts on your home screen by choosing from the shortcuts below. Choose All Shortcuts for the entire collection.
+	</string>
 	<string name="CreateCheckInButtonText">Check In</string>
 	<string name="CreateListButtonText">Friends List</string>
 	<string name="CreateHistoryButtonText">Location History</string>
 	<string name="CreatePlacesButtonText">Manage Places</string>
 	<string name="CreateAllButtonText">All Shortcuts</string>
-
-    <string name="OK">OK</string>
-
     <string name="InstalledAlertMessage">
 		Your shortcut is named %1$s
 	</string>
 
-    <string name="AboutAlertTitle">About Latitude Shortcuts</string>
-    <string name="AboutAlertMessage">Source soon to be released.
+	<!-- Widgets -->
+	<string name="widget_chooser">Latitude Shortcuts</string>
+	<string name="WidgetDescription">
+		Choose a Google Latitude shortcut
+	</string>
+	<string name="WidgetCheckInButtonText">Check In</string>
+	<string name="WidgetListButtonText">Friends List</string>
+	<string name="WidgetHistoryButtonText">Location History</string>
+	<string name="WidgetPlacesButtonText">Manage Places</string>
+
+	<!-- Shortcut Creation -->
+    <string name="TitleCheckin">Check In</string>
+    <string name="LatitudeCheckinURI">
+		latitude://latitude/checkin
 	</string>
 
-    <string name="TitleCheckin">Check In</string>
-    <string name="LatitudeCheckinURI">latitude://latitude/checkin</string>
-
     <string name="TitleList">Friends List</string>
-    <string name="LatitudeListURI">latitude://latitude/list</string>
+    <string name="LatitudeListURI">
+		latitude://latitude/list
+	</string>
 
     <string name="TitleHistory">History</string>
-    <string name="LatitudeHistoryURI">latitude://latitude/location-history</string>
+    <string name="LatitudeHistoryURI">
+		latitude://latitude/location-history
+	</string>
 
     <string name="TitlePlaces">Places</string>
-    <string name="LatitudePlacesURI">latitude://latitude/manage-places</string>
+    <string name="LatitudePlacesURI">
+		latitude://latitude/manage-places
+	</string>
 
     <string name="TitleAll">All Shortcuts</string>
     <string name="AllAlertText">All shortcuts have been installed</string>
+		
+	<!-- General -->
+    <string name="OK">OK</string>
+
+    <string name="AboutAlertTitle">About Latitude Shortcuts</string>
+    <string name="AboutAlertMessage">
+		Source soon to be released.
+	</string>
+
 
 </resources>

@@ -1,29 +1,11 @@
 package com.rgpike.latitudeshortcuts;
 
 import android.app.Activity;
+
 import android.os.Bundle;
 
-import android.content.Intent;
-import android.content.Intent.ShortcutIconResource;
-import android.content.ComponentName;
-import android.content.DialogInterface;
-import android.content.Context;
-
-import android.net.Uri;
-
-import android.app.AlertDialog;
-
-import android.view.View;
 import android.view.Window;
-import android.widget.TextView;
-
-import android.text.method.LinkMovementMethod;
-import android.text.util.Linkify;
-import android.text.SpannableString;
-
-import java.util.Map;
-import java.util.HashMap;
-import java.util.Iterator;
+import android.view.View;
 
 public class ShortcutsActivity extends Activity
 {

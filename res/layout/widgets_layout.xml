@@ -19,7 +19,7 @@
     android:layout_width="fill_parent" 
     android:layout_height="wrap_content" 
 	android:textSize="8pt"
-    android:text="@string/ShortcutsDescription"
+    android:text="@string/WidgetDescription"
     />
 
 <LinearLayout
@@ -31,58 +31,40 @@
     >
 
 <Button
-    android:id="@+id/CreateCheckInButton"
+    android:id="@+id/WidgetCheckinButton"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
 	android:layout_weight="1"
 	android:textSize="10pt"
-    android:text="@string/CreateCheckInButtonText"
-    android:onClick="onCreateShortcutClick" />
+    android:text="@string/WidgetCheckInButtonText"
+    android:onClick="onWidgetClick" />
 
 <Button
-    android:id="@+id/CreateListButton"
+    android:id="@+id/WidgetListButton"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
 	android:layout_weight="1"
 	android:textSize="10pt"
-    android:text="@string/CreateListButtonText"
-    android:onClick="onCreateShortcutClick" />
+    android:text="@string/WidgetListButtonText"
+    android:onClick="onWidgetClick" />
 
 <Button
-    android:id="@+id/CreateHistoryButton"
+    android:id="@+id/WidgetHistoryButton"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
 	android:layout_weight="1"
 	android:textSize="10pt"
-    android:text="@string/CreateHistoryButtonText"
-    android:onClick="onCreateShortcutClick" />
+    android:text="@string/WidgetHistoryButtonText"
+    android:onClick="onWidgetClick" />
 
 <Button
-    android:id="@+id/CreatePlacesButton"
+    android:id="@+id/WidgetPlacesButton"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
 	android:layout_weight="1"
 	android:textSize="10pt"
-    android:text="@string/CreatePlacesButtonText"
-    android:onClick="onCreateShortcutClick" />
-
-<Button
-    android:id="@+id/CreateAllButton"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-	android:layout_weight="1"
-	android:textSize="10pt"
-    android:text="@string/CreateAllButtonText"
-    android:onClick="onCreateAllClick" />
-
-<Button
-    android:id="@+id/AboutButton"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-	android:layout_weight="1"
-	android:textSize="10pt"
-    android:text="@string/about"
-    android:onClick="onAboutClick" />
+    android:text="@string/WidgetPlacesButtonText"
+    android:onClick="onWidgetClick" />
 
 </LinearLayout>
 </LinearLayout>

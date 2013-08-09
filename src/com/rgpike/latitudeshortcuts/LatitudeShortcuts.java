@@ -1,11 +1,13 @@
 package com.rgpike.latitudeshortcuts;
 
 import android.app.Activity;
+import android.app.TabActivity;
+
 import android.os.Bundle;
 
-import android.app.TabActivity;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
+
 import android.content.Intent;
 
 public class LatitudeShortcuts extends TabActivity
