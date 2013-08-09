@@ -6,19 +6,71 @@ import android.os.Bundle;
 
 import android.view.Window;
 import android.view.View;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 
-public class ShortcutsActivity extends Activity
+import android.widget.LinearLayout;
+import android.widget.Button;
+
+import android.support.v4.app.Fragment;
+
+public class ShortcutsActivity extends Fragment
 {
 	private LauncherCollection launchers;
 
-	@Override
-	public void onCreate(Bundle savedInstanceState)
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 	{
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.shortcuts_layout);
+		if (container == null)
+		{
+			return null;
+		}
 
-		launchers = new LauncherCollection(this);
+		launchers = new LauncherCollection(getActivity());
+
+		View v = (LinearLayout) inflater.inflate(R.layout.shortcuts_layout,
+			container, false);
+
+		for (int i :
+			new int[]
+			{
+				R.id.CreateCheckInButton,
+				R.id.CreateListButton,
+				R.id.CreatePlacesButton,
+				R.id.CreateHistoryButton
+			})
+		{
+			Button button = (Button) v.findViewById(i);
+			button.setOnClickListener(new View.OnClickListener()
+				{
+					@Override
+					public void onClick(View v)
+					{
+						onCreateShortcutClick(v);
+					}
+				});
+		}
+
+		Button button = (Button) v.findViewById(R.id.CreateAllButton);
+		button.setOnClickListener(new View.OnClickListener()
+			{
+				@Override
+				public void onClick(View v)
+				{
+					onCreateAllClick(v);
+				}
+			});
+
+		button = (Button) v.findViewById(R.id.AboutButton);
+		button.setOnClickListener(new View.OnClickListener()
+			{
+				@Override
+				public void onClick(View v)
+				{
+					onAboutClick(v);
+				}
+			});
+
+		return v;
 	}
 
 	public void onCreateShortcutClick(View v)
@@ -27,27 +79,27 @@ public class ShortcutsActivity extends Activity
 			{
 			case R.id.CreateCheckInButton:
 				launchers.getLauncher(LauncherCollection.mapCheckin).
-					CreateShortcut(getApplicationContext());
+					CreateShortcut(getActivity());
 				launchers.getLauncher(LauncherCollection.mapCheckin).
-					ShowDialog(this);
+					ShowDialog(getActivity());
 				break;
 			case R.id.CreateHistoryButton:
 				launchers.getLauncher(LauncherCollection.mapHistory).
-					CreateShortcut(getApplicationContext());
+					CreateShortcut(getActivity());
 				launchers.getLauncher(LauncherCollection.mapHistory).
-					ShowDialog(this);
+					ShowDialog(getActivity());
 				break;
 			case R.id.CreatePlacesButton:
 				launchers.getLauncher(LauncherCollection.mapPlaces).
-					CreateShortcut(getApplicationContext());
+					CreateShortcut(getActivity());
 				launchers.getLauncher(LauncherCollection.mapPlaces).
-					ShowDialog(this);
+					ShowDialog(getActivity());
 				break;
 			case R.id.CreateListButton:
 				launchers.getLauncher(LauncherCollection.mapList).
-					CreateShortcut(getApplicationContext());
+					CreateShortcut(getActivity());
 				launchers.getLauncher(LauncherCollection.mapList).
-					ShowDialog(this);
+					ShowDialog(getActivity());
 				break;
 			}
 	}
@@ -56,11 +108,11 @@ public class ShortcutsActivity extends Activity
 	{
 		for (Launcher l : launchers.getLauncherValues())
 		{
-			l.CreateShortcut(getApplicationContext());
+			l.CreateShortcut(getActivity());
 		}
 
 		About.ShowDialog(
-			this,
+			getActivity(),
 			R.drawable.ic_launcher,
 			getResources().getString(R.string.TitleAll),
 			getResources().getString(R.string.AllAlertText)
@@ -69,6 +121,6 @@ public class ShortcutsActivity extends Activity
 
     public void onAboutClick(View v)
     {
-		About.onAboutClick(this, v);
+		About.onAboutClick(getActivity(), v);
 	}
 }

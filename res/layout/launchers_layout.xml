@@ -29,7 +29,6 @@
                 android:layout_weight="1"
                 android:drawableTop="@drawable/ic_checkin"
                 android:lines="2"
-                android:onClick="onLaunchClick"
                 android:paddingTop="32sp"
                 android:text="@string/LaunchCheckInButtonText"
                 android:textSize="10pt" />
@@ -41,7 +40,6 @@
                 android:layout_weight="1"
                 android:drawableTop="@drawable/ic_list"
                 android:lines="2"
-                android:onClick="onLaunchClick"
                 android:paddingTop="32sp"
                 android:text="@string/LaunchListButtonText"
                 android:textSize="10pt" />
@@ -61,7 +59,6 @@
                 android:layout_weight="1"
                 android:drawableTop="@drawable/ic_history"
                 android:lines="2"
-                android:onClick="onLaunchClick"
                 android:paddingTop="32sp"
                 android:text="@string/LaunchHistoryButtonText"
                 android:textSize="10pt" />
@@ -73,7 +70,6 @@
                 android:layout_weight="1"
                 android:drawableTop="@drawable/ic_places"
                 android:lines="2"
-                android:onClick="onLaunchClick"
                 android:paddingTop="32sp"
                 android:text="@string/LaunchPlacesButtonText"
                 android:textSize="10pt" />
@@ -91,7 +87,6 @@
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
                 android:drawableLeft="@drawable/ic_about"
-                android:onClick="onAboutClick"
                 android:paddingLeft="48sp"
                 android:text="@string/about"
                 android:textSize="10pt" />

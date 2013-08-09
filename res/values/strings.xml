@@ -5,6 +5,10 @@
     <string name="title">Latitude Shortcuts</string>
     <string name="about">About</string>
 
+    <!-- Tabs -->
+    <string name="TabLaunchers">Launchers</string>
+    <string name="TabShortcuts">Shortcuts</string>
+
     <!-- Launchers -->
     <string name="LauncherDescription">		Launch Google Latitude from here.</string>
     <string name="LaunchCheckInButtonText">Check In</string>

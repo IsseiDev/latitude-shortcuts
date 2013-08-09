@@ -29,7 +29,6 @@
                 android:layout_weight="1"
                 android:drawableTop="@drawable/ic_checkin"
                 android:lines="2"
-                android:onClick="onCreateShortcutClick"
                 android:paddingTop="24sp"
                 android:text="@string/CreateCheckInButtonText"
                 android:textSize="8pt" />
@@ -41,7 +40,6 @@
                 android:layout_weight="1"
                 android:drawableTop="@drawable/ic_list"
                 android:lines="2"
-                android:onClick="onCreateShortcutClick"
                 android:paddingTop="24sp"
                 android:text="@string/CreateListButtonText"
                 android:textSize="8pt" />
@@ -61,7 +59,6 @@
                 android:layout_weight="1"
                 android:drawableTop="@drawable/ic_history"
                 android:lines="2"
-                android:onClick="onCreateShortcutClick"
                 android:paddingTop="24sp"
                 android:text="@string/CreateHistoryButtonText"
                 android:textSize="8pt" />
@@ -73,7 +70,6 @@
                 android:layout_weight="1"
                 android:drawableTop="@drawable/ic_places"
                 android:lines="2"
-                android:onClick="onCreateShortcutClick"
                 android:paddingTop="24sp"
                 android:text="@string/CreatePlacesButtonText"
                 android:textSize="8pt" />
@@ -92,7 +88,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:drawableLeft="@drawable/ic_all"
-                android:onClick="onCreateAllClick"
                 android:paddingLeft="32sp"
                 android:text="@string/CreateAllButtonText"
                 android:textSize="8pt" />
@@ -111,7 +106,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:drawableLeft="@drawable/ic_about"
-                android:onClick="onAboutClick"
                 android:paddingLeft="32sp"
                 android:text="@string/about"
                 android:textSize="8pt" />
