@@ -7,6 +7,8 @@
 
 	<string name="Description">Create Google Latitude shortcuts on your home screen by choosing from the shortcuts below. Choose All Shortcuts for the entire collection.
 		</string>
+	<string name="LauncherDescription">Launch Google Latitude from here.
+		</string>
 		
 	<string name="CreateCheckInButtonText">Check In</string>
 	<string name="CreateListButtonText">Friends List</string>
