@@ -77,7 +77,7 @@ public abstract class TabPager extends FragmentActivity implements TabHost.OnTab
         super.onCreate(savedInstanceState);
     }
 
-    /** Intializes TabHost, Fragments, ViewPager for execution */
+    /** Initializes TabHost, Fragments, ViewPager for execution */
     public void startTabPager() {
         List<Fragment> fragments = new Vector<Fragment>();
         FragmentManager fm;
