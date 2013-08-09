@@ -1,27 +1,22 @@
 
 package com.rgpike.latitudeshortcuts;
 
-import android.os.Bundle;
-
 import java.util.List;
 import java.util.Vector;
 
 import android.content.Context;
-
-import android.view.View;
-
-import android.widget.TabHost;
-import android.widget.TabHost.TabSpec;
-import android.widget.TabHost.TabContentFactory;
-
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
-import android.support.v4.app.FragmentPagerAdapter;
-
 import android.util.Log;
+import android.view.View;
+import android.widget.TabHost;
+import android.widget.TabHost.TabContentFactory;
+import android.widget.TabHost.TabSpec;
 
 public abstract class TabPager extends FragmentActivity implements TabHost.OnTabChangeListener,
         ViewPager.OnPageChangeListener {
@@ -116,18 +111,22 @@ public abstract class TabPager extends FragmentActivity implements TabHost.OnTab
         getTabHost().setOnTabChangedListener(this);
     }
 
+	@Override
     public void onTabChanged(String tag) {
         int pos = getTabHost().getCurrentTab();
         mViewPager.setCurrentItem(pos);
     }
 
+	@Override
     public void onPageSelected(int position) {
         getTabHost().setCurrentTab(position);
     }
 
+	@Override
     public void onPageScrollStateChanged(int state) {
     }
 
+	@Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
     }
 }

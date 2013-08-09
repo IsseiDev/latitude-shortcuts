@@ -29,7 +29,7 @@
                 android:drawableLeft="@drawable/ic_checkin"
                 android:onClick="onLaunchClick"
                 android:paddingLeft="48sp"
-                android:text="@string/LaunchCheckInButtonText"
+                android:text="@string/PickerCheckInButtonText"
                 android:textSize="8pt" />
 
             <Button
@@ -40,7 +40,7 @@
                 android:drawableLeft="@drawable/ic_list"
                 android:onClick="onLaunchClick"
                 android:paddingLeft="48sp"
-                android:text="@string/LaunchListButtonText"
+                android:text="@string/PickerListButtonText"
                 android:textSize="8pt" />
         </TableRow>
 
@@ -58,7 +58,7 @@
                 android:drawableLeft="@drawable/ic_history"
                 android:onClick="onLaunchClick"
                 android:paddingLeft="48sp"
-                android:text="@string/LaunchHistoryButtonText"
+                android:text="@string/PickerHistoryButtonText"
                 android:textSize="8pt" />
 
             <Button
@@ -69,7 +69,7 @@
                 android:drawableLeft="@drawable/ic_places"
                 android:onClick="onLaunchClick"
                 android:paddingLeft="48sp"
-                android:text="@string/LaunchPlacesButtonText"
+                android:text="@string/PickerPlacesButtonText"
                 android:textSize="8pt" />
         </TableRow>
 

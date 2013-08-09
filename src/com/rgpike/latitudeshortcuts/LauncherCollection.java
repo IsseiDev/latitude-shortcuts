@@ -1,13 +1,16 @@
 
 package com.rgpike.latitudeshortcuts;
 
-import android.content.Context;
-
-import java.util.Map;
-import java.util.HashMap;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+
+import android.content.Context;
+import android.util.Log;
 
 public class LauncherCollection {
+    public static final String TAG = "LauncherCollection";
+
     public final static String MAP_CHECKIN = "checkin";
 
     public final static String MAP_LIST = "list";
@@ -31,6 +34,10 @@ public class LauncherCollection {
 
         if (mLauncherCollection.containsKey(key)) {
             launcher = mLauncherCollection.get(key);
+			if (launcher.getLauncherName().equals(key) == false) {
+				Log.e(TAG, "Launcher name (" + launcher.getLauncherName() +
+					") does not match launcher key (" + key + ")");
+			}
         } else {
             launcher = null;
         }
@@ -42,7 +49,8 @@ public class LauncherCollection {
         Launcher launcher;
 
         /* Check In */
-        launcher = new Launcher(R.drawable.ic_checkin, context.getResources().getString(
+        launcher = new Launcher(LauncherCollection.MAP_CHECKIN,
+				R.drawable.ic_checkin, context.getResources().getString(
                 R.string.TitleCheckin), context.getResources().getString(
                 R.string.LatitudeCheckinURI), context.getResources().getString(
                 R.string.TitleCheckin), String.format(
@@ -51,7 +59,8 @@ public class LauncherCollection {
         mLauncherCollection.put(LauncherCollection.MAP_CHECKIN, launcher);
 
         /* Places */
-        launcher = new Launcher(R.drawable.ic_places, context.getResources().getString(
+        launcher = new Launcher(LauncherCollection.MAP_PLACES,
+				R.drawable.ic_places, context.getResources().getString(
                 R.string.TitlePlaces),
                 context.getResources().getString(R.string.LatitudePlacesURI), context
                         .getResources().getString(R.string.TitlePlaces), String.format(context
@@ -60,7 +69,8 @@ public class LauncherCollection {
         mLauncherCollection.put(LauncherCollection.MAP_PLACES, launcher);
 
         /* Friends List */
-        launcher = new Launcher(R.drawable.ic_list, context.getResources().getString(
+        launcher = new Launcher(LauncherCollection.MAP_LIST,
+				R.drawable.ic_list, context.getResources().getString(
                 R.string.TitleList), context.getResources().getString(R.string.LatitudeListURI),
                 context.getResources().getString(R.string.TitleList), String.format(context
                         .getResources().getString(R.string.InstalledAlertMessage), context
@@ -68,7 +78,8 @@ public class LauncherCollection {
         mLauncherCollection.put(LauncherCollection.MAP_LIST, launcher);
 
         /* History */
-        launcher = new Launcher(R.drawable.ic_history, context.getResources().getString(
+        launcher = new Launcher(LauncherCollection.MAP_HISTORY,
+				R.drawable.ic_history, context.getResources().getString(
                 R.string.TitleHistory), context.getResources().getString(
                 R.string.LatitudeHistoryURI), context.getResources().getString(
                 R.string.TitleHistory), String.format(

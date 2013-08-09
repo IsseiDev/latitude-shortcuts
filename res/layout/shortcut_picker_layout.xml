@@ -7,39 +7,39 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/LauncherDescription"
+        android:text="@string/WidgetDescription"
         android:textSize="8pt" />
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:weightSum="5" >
+        android:layout_height="fill_parent" >
 
         <TableRow
             android:id="@+id/tableRow1"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:layout_weight="2"
             android:weightSum="2" >
 
             <Button
-                android:id="@+id/LaunchCheckinButton"
+                android:id="@+id/WidgetCheckinButton"
                 android:layout_width="0dip"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
                 android:drawableTop="@drawable/ic_checkin"
                 android:lines="2"
+                android:onClick="onWidgetClick"
                 android:paddingTop="32sp"
                 android:text="@string/PickerCheckInButtonText"
                 android:textSize="10pt" />
 
             <Button
-                android:id="@+id/LaunchListButton"
+                android:id="@+id/WidgetListButton"
                 android:layout_width="0dip"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
                 android:drawableTop="@drawable/ic_list"
                 android:lines="2"
+                android:onClick="onWidgetClick"
                 android:paddingTop="32sp"
                 android:text="@string/PickerListButtonText"
                 android:textSize="10pt" />
@@ -49,48 +49,33 @@
             android:id="@+id/tableRow2"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:layout_weight="2"
             android:weightSum="2" >
 
             <Button
-                android:id="@+id/LaunchHistoryButton"
+                android:id="@+id/WidgetHistoryButton"
                 android:layout_width="0dip"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
                 android:drawableTop="@drawable/ic_history"
                 android:lines="2"
+                android:onClick="onWidgetClick"
                 android:paddingTop="32sp"
                 android:text="@string/PickerHistoryButtonText"
                 android:textSize="10pt" />
 
             <Button
-                android:id="@+id/LaunchPlacesButton"
+                android:id="@+id/WidgetPlacesButton"
                 android:layout_width="0dip"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
                 android:drawableTop="@drawable/ic_places"
                 android:lines="2"
+                android:onClick="onWidgetClick"
                 android:paddingTop="32sp"
                 android:text="@string/PickerPlacesButtonText"
                 android:textSize="10pt" />
         </TableRow>
 
-        <TableRow
-            android:id="@+id/tableRow3"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="1" >
-
-            <Button
-                android:id="@+id/AboutButton"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:drawableLeft="@drawable/ic_about"
-                android:paddingLeft="48sp"
-                android:text="@string/about"
-                android:textSize="10pt" />
-        </TableRow>
     </TableLayout>
 
 </LinearLayout>

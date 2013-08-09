@@ -1,23 +1,26 @@
 
 package com.rgpike.latitudeshortcuts;
 
+import android.app.Activity;
 import android.app.AlertDialog;
-
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.Intent.ShortcutIconResource;
-import android.content.DialogInterface;
-import android.content.Context;
-
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
-
+import android.text.SpannableString;
 import android.text.method.LinkMovementMethod;
 import android.text.util.Linkify;
-import android.text.SpannableString;
-
 import android.widget.TextView;
 
 public class Launcher {
+	private String mLauncherName;
+
     private int mIconRes;
+
+	private Bitmap mScaledBitmap;
 
     private String mIconTitle;
 
@@ -27,8 +30,9 @@ public class Launcher {
 
     private String mAlertMessage;
 
-    public Launcher(int iconRes, String iconTitle, String intentUri, String alertTitle,
+    public Launcher(String launcherName, int iconRes, String iconTitle, String intentUri, String alertTitle,
             String alertMessage) {
+		setLauncherName(launcherName);
         setIconResource(iconRes);
         setIconTitle(iconTitle);
         setIntentUri(intentUri);
@@ -36,6 +40,15 @@ public class Launcher {
         setAlertMessage(alertMessage);
     }
 
+	public String setLauncherName(String s) {
+		mLauncherName = s;
+		return s;
+	}
+	
+	public String getLauncherName() {
+		return mLauncherName;
+	}
+	
     public int setIconResource(int r) {
         mIconRes = r;
         return mIconRes;
@@ -43,6 +56,15 @@ public class Launcher {
 
     public int getIconResource() {
         return mIconRes;
+    }
+
+    public Bitmap setIconScaledBitmap(Bitmap bitmap) {
+        mScaledBitmap = bitmap;
+        return mScaledBitmap;
+    }
+
+    public Bitmap getIconScaledBitmap() {
+        return mScaledBitmap;
     }
 
     public String setIconTitle(String r) {
@@ -97,8 +119,13 @@ public class Launcher {
         Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(mIntentUri));
         shortcut.putExtra(Intent.EXTRA_SHORTCUT_INTENT, intent);
 
-        ShortcutIconResource icon = Intent.ShortcutIconResource.fromContext(context, mIconRes);
-        shortcut.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE, icon);
+		if (mScaledBitmap != null) {
+			//mScaledBitmap = IconUtils.getIconScaledBitmap((Activity) context, mIconBitmap);
+			shortcut.putExtra(Intent.EXTRA_SHORTCUT_ICON, mScaledBitmap);
+		} else {
+			ShortcutIconResource icon = Intent.ShortcutIconResource.fromContext(context, mIconRes);
+			shortcut.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE, icon);
+		}
 
         return shortcut;
     }
@@ -115,7 +142,13 @@ public class Launcher {
         AlertDialog alertDialog = new AlertDialog.Builder(context).create();
         alertDialog.setTitle(mIconTitle);
         alertDialog.setMessage(s);
+
+		if (mScaledBitmap != null) {
+        	alertDialog.setIcon(new BitmapDrawable(context.getResources(), mScaledBitmap));
+		} else {
         alertDialog.setIcon(mIconRes);
+		}
+
         alertDialog.setButton(context.getResources().getString(R.string.OK),
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {

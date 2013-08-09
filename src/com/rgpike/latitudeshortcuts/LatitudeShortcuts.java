@@ -2,11 +2,14 @@
 package com.rgpike.latitudeshortcuts;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import android.widget.TabHost;
 
 /* Handles the main activity */
 public class LatitudeShortcuts extends TabPager {
+    public static final String TAG = "LatitudeShortcuts";
+
     private TabHost mTabHost;
 
     private TabPager.TabSet[] mTabs;
@@ -50,5 +53,11 @@ public class LatitudeShortcuts extends TabPager {
         setContentView(R.layout.main);
         initTabs();
         super.startTabPager();
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        Log.d(TAG, "onSaveInstanceState()");
+        super.onSaveInstanceState(outState);
     }
 }

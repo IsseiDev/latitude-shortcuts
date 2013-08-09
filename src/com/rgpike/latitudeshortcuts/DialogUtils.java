@@ -11,7 +11,7 @@ import android.text.util.Linkify;
 import android.view.View;
 import android.widget.TextView;
 
-public class About {
+public class DialogUtils {
     public static void ShowDialog(Context context, int iconRes, String title, String message) {
         final SpannableString s = new SpannableString(message);
         Linkify.addLinks(s, Linkify.ALL);
@@ -19,7 +19,8 @@ public class About {
         AlertDialog alertDialog = new AlertDialog.Builder(context).create();
         alertDialog.setTitle(title);
         alertDialog.setMessage(s);
-        alertDialog.setIcon(iconRes);
+        if (iconRes != 0)
+            alertDialog.setIcon(iconRes);
         alertDialog.setButton(context.getResources().getString(R.string.OK),
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {

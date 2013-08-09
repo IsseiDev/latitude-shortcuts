@@ -4,102 +4,90 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-    <TextView
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/ShortcutsDescription"
-        android:textSize="8pt" />
+        android:orientation="horizontal" >
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:weightSum="2" >
+        <TextView
+            android:id="@+id/ShortcutsSetShortcutText"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/ChooseShortcut"
+            android:textSize="8pt" />
 
-        <TableRow
-            android:id="@+id/tableRow1"
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/ShortcutsSetIconText"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/ChooseIcon"
+            android:textSize="8pt" />
+
+        <TextView
+            android:id="@+id/ShortcutsCreateShortcutText"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/CreateShortcut"
+            android:textSize="8pt" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+		<view
+			class="com.rgpike.latitudeshortcuts.IconButton"
+            android:id="@+id/ShortcutsSetShortcutButton"
+            android:layout_width="0dip"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:weightSum="3" >
+            android:drawableTop="@drawable/ic_all"
+            android:lines="1"
+            android:onClick="onWidgetClick"
+            android:paddingTop="16sp"
+            android:text="@string/WidgetChooseShortcut"
+            android:textSize="8pt" />
 
-            <Button
-                android:id="@+id/CreateCheckInButton"
-                android:layout_width="0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:drawableLeft="@drawable/ic_checkin"
-                android:lines="2"
-                android:onClick="onCreateShortcutClick"
-                android:paddingLeft="24sp"
-                android:text="@string/CreateCheckInButtonText"
-                android:textSize="8pt" />
-
-            <Button
-                android:id="@+id/CreateListButton"
-                android:layout_width="0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:drawableLeft="@drawable/ic_list"
-                android:lines="2"
-                android:onClick="onCreateShortcutClick"
-                android:paddingLeft="24sp"
-                android:text="@string/CreateListButtonText"
-                android:textSize="8pt" />
-
-            <Button
-                android:id="@+id/CreateAllButton"
-                android:layout_width="0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:drawableLeft="@drawable/ic_all"
-                android:onClick="onCreateAllClick"
-                android:paddingLeft="24sp"
-                android:text="@string/CreateAllButtonText"
-                android:textSize="8pt" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tableRow2"
-            android:layout_width="wrap_content"
+		<view
+			class="com.rgpike.latitudeshortcuts.IconButton"
+            android:id="@+id/ShortcutsSetIconButton"
+            android:layout_width="0dip"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:weightSum="3" >
+            android:lines="2"
+            android:text="@string/WidgetSetIconText"
+            android:textSize="8pt" />
 
-            <Button
-                android:id="@+id/CreateHistoryButton"
-                android:layout_width="0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:drawableLeft="@drawable/ic_history"
-                android:lines="2"
-                android:onClick="onCreateShortcutClick"
-                android:paddingLeft="24sp"
-                android:text="@string/CreateHistoryButtonText"
-                android:textSize="8pt" />
+        <Button
+            android:id="@+id/ShortcutsCreateShortcutButton"
+            android:layout_width="0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:lines="1"
+            android:text="@string/WidgetCreateShortcut"
+            android:textSize="8pt" />
+    </LinearLayout>
 
-            <Button
-                android:id="@+id/CreatePlacesButton"
-                android:layout_width="0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:drawableLeft="@drawable/ic_places"
-                android:lines="2"
-                android:onClick="onCreateShortcutClick"
-                android:paddingLeft="24sp"
-                android:text="@string/CreatePlacesButtonText"
-                android:textSize="8pt" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal" >
 
-            <Button
-                android:id="@+id/AboutButton"
-                android:layout_width="0dip"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:drawableLeft="@drawable/ic_about"
-                android:onClick="onAboutClick"
-                android:paddingLeft="24sp"
-                android:text="@string/about"
-                android:textSize="8pt" />
-        </TableRow>
-    </TableLayout>
+        <Button
+            android:id="@+id/CreateAllButton"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_all"
+            android:lines="1"
+            android:paddingTop="16sp"
+            android:text="@string/CreateAllButtonText"
+            android:textSize="8pt" />
+    </LinearLayout>
 
 </LinearLayout>

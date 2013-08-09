@@ -11,43 +11,49 @@
 
     <!-- Launchers -->
     <string name="LauncherDescription">		Launch Google Latitude from here.</string>
-    <string name="LaunchCheckInButtonText">Check In</string>
-    <string name="LaunchListButtonText">Friends List</string>
-    <string name="LaunchHistoryButtonText">Location History</string>
-    <string name="LaunchPlacesButtonText">Manage Places</string>
 
     <!-- Shortcuts -->
     <string name="ShortcutsDescription">		Create Google Latitude shortcuts on your home screen by choosing from the shortcuts below. Choose All Shortcuts for the entire collection.</string>
-    <string name="CreateCheckInButtonText">Check In</string>
-    <string name="CreateListButtonText">Friends List</string>
-    <string name="CreateHistoryButtonText">Location History</string>
-    <string name="CreatePlacesButtonText">Manage Places</string>
-    <string name="CreateAllButtonText">All Shortcuts</string>
+    <string name="CreateAllButtonText">Create All Shortcuts</string>
     <string name="InstalledAlertMessage">		Your shortcut is named %1$s</string>
 
     <!-- Widgets -->
     <string name="widget_chooser">Latitude Shortcuts</string>
     <string name="WidgetDescription">		Choose a Google Latitude shortcut</string>
-    <string name="WidgetCheckInButtonText">Check In</string>
-    <string name="WidgetListButtonText">Friends List</string>
-    <string name="WidgetHistoryButtonText">Location History</string>
-    <string name="WidgetPlacesButtonText">Manage Places</string>
+	<string name="WidgetSetIconText">Choose Image for Icon</string>
+	<string name="WidgetUnsetIconText">Remove custom icon</string>
+	<string name="WidgetChooseShortcut">Choose Shortcut</string>
+	<string name="WidgetCreateShortcut">Create Shortcut</string>
+
+	<!-- Shortcut Picker -->
+    <string name="PickerCheckInButtonText">Check In</string>
+    <string name="PickerListButtonText">Friends List</string>
+    <string name="PickerHistoryButtonText">Location History</string>
+    <string name="PickerPlacesButtonText">Manage Places</string>
+
+	<!-- Shortcut Creation Instructions -->
+	<string name="ChooseShortcut">1. Choose shortcut</string>
+	<string name="ChooseIcon">2. Choose icon</string>
+	<string name="CreateShortcut">3. Create shortcut</string>
 
     <!-- Shortcut Creation -->
     <string name="TitleCheckin">Check In</string>
-    <string name="LatitudeCheckinURI">		latitude://latitude/checkin</string>
+    <string name="LatitudeCheckinURI">latitude://latitude/checkin</string>
     <string name="TitleList">Friends List</string>
-    <string name="LatitudeListURI">		latitude://latitude/list</string>
+    <string name="LatitudeListURI">latitude://latitude/list</string>
     <string name="TitleHistory">History</string>
-    <string name="LatitudeHistoryURI">		latitude://latitude/location-history</string>
+    <string name="LatitudeHistoryURI">latitude://latitude/location-history</string>
     <string name="TitlePlaces">Places</string>
-    <string name="LatitudePlacesURI">		latitude://latitude/manage-places</string>
+    <string name="LatitudePlacesURI">latitude://latitude/manage-places</string>
     <string name="TitleAll">All Shortcuts</string>
     <string name="AllAlertText">All shortcuts have been installed</string>
-
-    <!-- General -->
+	<string name="ErrorIcon">Could not load icon</string>
+	<string name="ErrorShortcut">Could not get shortcut</string>
+   	<string name="ErrorChooseShortcut">You must choose a shortcut to create</string>
+		
+	<!-- General -->
     <string name="OK">OK</string>
     <string name="AboutAlertTitle">About Latitude Shortcuts</string>
     <string name="AboutAlertMessage">Latitude Shortcuts unlocks direct access to the Google Latitude functionality inside Google Maps through this application or the shortcuts it creates.\n\nThis app is in no way affiliated with Google Maps, Google Latitude, or any Google product.\n\nThe source code will eventually be released.</string>
-
+	<string name="Error">Error</string>
 </resources>

@@ -2,19 +2,48 @@
 package com.rgpike.latitudeshortcuts;
 
 import android.os.Bundle;
-
-import android.view.View;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
-
-import android.widget.LinearLayout;
 import android.widget.Button;
-
-import android.support.v4.app.Fragment;
+import android.widget.TextView;
 
 /* Handles the creation of shortcuts */
-public class ShortcutsActivity extends Fragment {
-    private LauncherCollection mLaunchers;
+public class ShortcutsActivity extends ShortcutCreatorBase {
+    public static final String TAG = "ShortcutsActivity";
+
+    private View mView;
+
+	@Override
+	public TextView getSetIconTextView() {
+        return (TextView) mView.findViewById(R.id.ShortcutsSetIconText);
+	}
+
+	@Override
+	public TextView getCreateShortcutTextView() {
+        return (TextView) mView.findViewById(R.id.ShortcutsCreateShortcutText);
+	}
+
+    @Override
+    public View getShortcutView() {
+        return mView;
+    }
+
+    @Override
+    public IconButton getSetShortcutButton() {
+        return (IconButton)mView.findViewById(R.id.ShortcutsSetShortcutButton);
+    }
+
+    @Override
+    public IconButton getSetIconButton() {
+        return (IconButton)mView.findViewById(R.id.ShortcutsSetIconButton);
+    }
+
+    @Override
+    public Button getCreateShortcutButton() {
+        return (Button)mView.findViewById(R.id.ShortcutsCreateShortcutButton);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -22,81 +51,50 @@ public class ShortcutsActivity extends Fragment {
             return null;
         }
 
-        mLaunchers = new LauncherCollection(getActivity());
+        mView = inflater.inflate(R.layout.shortcuts_layout, container, false);
 
-        View v = (LinearLayout)inflater.inflate(R.layout.shortcuts_layout, container, false);
-
-        setButtonCallbacks(v);
-
-        return v;
-    }
-
-    /** Sets up the button callbacks to come to this fragment */
-    private void setButtonCallbacks(View v) {
-        for (int i : new int[] {
-                R.id.CreateCheckInButton, R.id.CreateListButton, R.id.CreatePlacesButton,
-                R.id.CreateHistoryButton
-        }) {
-            Button button = (Button)v.findViewById(i);
-            button.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    onCreateShortcutClick(v);
-                }
-            });
-        }
-
-        Button button = (Button)v.findViewById(R.id.CreateAllButton);
+        /* Set create all button callback */
+        Button button = (Button)mView.findViewById(R.id.CreateAllButton);
         button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                onCreateAllClick(v);
+            public void onClick(View view) {
+                onCreateAllClick(view);
             }
         });
 
-        button = (Button)v.findViewById(R.id.AboutButton);
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                onAboutClick(v);
-            }
-        });
-    }
+        /* Parent sets up other buttons */
+        super.onCreateView(inflater, container, savedInstanceState);
 
-    /* Creates a shortcut based on the ID of the view */
-    public void onCreateShortcutClick(View v) {
-        switch (v.getId()) {
-            case R.id.CreateCheckInButton:
-                mLaunchers.getLauncher(LauncherCollection.MAP_CHECKIN)
-                        .CreateShortcut(getActivity());
-                mLaunchers.getLauncher(LauncherCollection.MAP_CHECKIN).ShowDialog(getActivity());
-                break;
-            case R.id.CreateHistoryButton:
-                mLaunchers.getLauncher(LauncherCollection.MAP_HISTORY)
-                        .CreateShortcut(getActivity());
-                mLaunchers.getLauncher(LauncherCollection.MAP_HISTORY).ShowDialog(getActivity());
-                break;
-            case R.id.CreatePlacesButton:
-                mLaunchers.getLauncher(LauncherCollection.MAP_PLACES).CreateShortcut(getActivity());
-                mLaunchers.getLauncher(LauncherCollection.MAP_PLACES).ShowDialog(getActivity());
-                break;
-            case R.id.CreateListButton:
-                mLaunchers.getLauncher(LauncherCollection.MAP_LIST).CreateShortcut(getActivity());
-                mLaunchers.getLauncher(LauncherCollection.MAP_LIST).ShowDialog(getActivity());
-                break;
-        }
+        return mView;
     }
 
     /** Creates all the shortcuts on the home screen */
     public void onCreateAllClick(View v) {
-        for (Launcher l : mLaunchers.getLauncherValues()) {
+        for (Launcher l : getLauncherCollection().getLauncherValues()) {
             l.CreateShortcut(getActivity());
         }
 
-        About.ShowDialog(getActivity(), R.drawable.ic_launcher,
+        DialogUtils.ShowDialog(getActivity(), R.drawable.ic_launcher,
                 getResources().getString(R.string.TitleAll),
                 getResources().getString(R.string.AllAlertText));
     }
 
-    /** Shows the About dialog */
-    public void onAboutClick(View v) {
-        About.onAboutClick(getActivity(), v);
+    /** Creates and returns a shortcut intent */
+    @Override
+    public void onCreateShortcutClick(View view) {
+        if (getLauncher() != null) {
+            getLauncher().CreateShortcut(getActivity());
+            getLauncher().ShowDialog(getActivity());
+        } else {
+            DialogUtils.ShowDialog(getActivity(), 0,
+                    getActivity().getResources().getString(R.string.Error), getActivity()
+                            .getResources().getString(R.string.ErrorChooseShortcut));
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        Log.d(TAG, "onSaveInstanceState()");
+
+        super.onSaveInstanceState(outState);
     }
 }
