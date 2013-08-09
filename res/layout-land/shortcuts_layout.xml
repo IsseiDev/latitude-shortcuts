@@ -94,7 +94,7 @@
                 android:layout_width="0dip"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
-                android:drawableLeft="@drawable/ic_launcher"
+                android:drawableLeft="@drawable/ic_about"
                 android:onClick="onAboutClick"
                 android:paddingLeft="24sp"
                 android:text="@string/about"
