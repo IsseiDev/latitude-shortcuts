@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Latitude Shortcut Creator</string>
+    <string name="app_name">Latitude Shortcuts</string>
 
-    <string name="title">Latitude Shortcut Creator</string>
+    <string name="title">Latitude Shortcuts</string>
     <string name="about">About</string>
 
-	<string name="Description">Create Google Latitude shortcuts on your home screen by choosing from the shortcuts below or choose All Shortcuts for the entire collection.
+	<string name="Description">Create Google Latitude shortcuts on your home screen by choosing from the shortcuts below. Choose All Shortcuts for the entire collection.
 		</string>
 		
 	<string name="CreateCheckInButtonText">Check In</string>
@@ -20,8 +20,8 @@
 		Your shortcut is named %1$s
 	</string>
 
-    <string name="AboutAlertTitle">About Latitude Shortcut Creator</string>
-    <string name="AboutAlertMessage">This app is Open Source.\n\nImprovements, code changes, etc. are welcome.\n\nSource at: http://www.github.com
+    <string name="AboutAlertTitle">About Latitude Shortcuts</string>
+    <string name="AboutAlertMessage">Source soon to be released.
 	</string>
 
     <string name="TitleCheckin">Check In</string>

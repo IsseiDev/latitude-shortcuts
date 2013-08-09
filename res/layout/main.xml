@@ -35,7 +35,7 @@
 	android:layout_weight="1"
 	android:textSize="10pt"
     android:text="@string/CreateCheckInButtonText"
-    android:onClick="onCreateCheckInClick" />
+    android:onClick="onCreateShortcutClick" />
 
 <Button
     android:id="@+id/CreateListButton"
@@ -44,7 +44,7 @@
 	android:layout_weight="1"
 	android:textSize="10pt"
     android:text="@string/CreateListButtonText"
-    android:onClick="onCreateListClick" />
+    android:onClick="onCreateShortcutClick" />
 
 <Button
     android:id="@+id/CreateHistoryButton"
@@ -53,7 +53,7 @@
 	android:layout_weight="1"
 	android:textSize="10pt"
     android:text="@string/CreateHistoryButtonText"
-    android:onClick="onCreateHistoryClick" />
+    android:onClick="onCreateShortcutClick" />
 
 <Button
     android:id="@+id/CreatePlacesButton"
@@ -62,7 +62,7 @@
 	android:layout_weight="1"
 	android:textSize="10pt"
     android:text="@string/CreatePlacesButtonText"
-    android:onClick="onCreatePlacesClick" />
+    android:onClick="onCreateShortcutClick" />
 
 <Button
     android:id="@+id/CreateAllButton"
