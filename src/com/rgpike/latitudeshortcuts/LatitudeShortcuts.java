@@ -11,6 +11,10 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.view.View;
 import android.view.Window;
+import android.widget.TextView;
+import android.text.method.LinkMovementMethod;
+import android.text.util.Linkify;
+import android.text.SpannableString;
 
 public class LatitudeShortcuts extends Activity
 {
@@ -43,9 +47,12 @@ public class LatitudeShortcuts extends Activity
 
 	private void ShowDialog(String title, String message)
 	{
+		final SpannableString s = new SpannableString(message);
+		Linkify.addLinks(s, Linkify.ALL);
+
         AlertDialog alertDialog = new AlertDialog.Builder(this).create();
         alertDialog.setTitle(title);
-        alertDialog.setMessage(message);
+        alertDialog.setMessage(s);
         alertDialog.setButton(getResources().getString(R.string.OK),
             new DialogInterface.OnClickListener()
             {
@@ -55,6 +62,10 @@ public class LatitudeShortcuts extends Activity
             } );
 
         alertDialog.show();
+
+		((TextView) alertDialog.findViewById(android.R.id.message)).
+			setMovementMethod(LinkMovementMethod.getInstance());
+
 	}
 
 	private void CreateShortcutAndShowDialog(ShortcutIconResource iconRes, String launcherTitle, String uri, String alertTitle, String alertMessage)

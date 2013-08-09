@@ -21,8 +21,7 @@
 	</string>
 
     <string name="AboutAlertTitle">About Latitude Shortcut Creator</string>
-    <string name="AboutAlertMessage">
-		This is About text
+    <string name="AboutAlertMessage">This app is Open Source.\n\nImprovements, code changes, etc. are welcome.\n\nSource at: http://www.github.com
 	</string>
 
     <string name="TitleCheckin">Check In</string>
