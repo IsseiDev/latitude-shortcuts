@@ -72,7 +72,6 @@ public class ShortcutsActivity extends Activity
 
 	public void onCreateAllClick(View v)
 	{
-		//for (Launcher l : launchers.l.values())
 		for (Launcher l : launchers.getLauncherValues())
 		{
 			l.CreateShortcut(getApplicationContext());
@@ -80,6 +79,7 @@ public class ShortcutsActivity extends Activity
 
 		About.ShowDialog(
 			this,
+			R.drawable.ic_launcher,
 			getResources().getString(R.string.TitleAll),
 			getResources().getString(R.string.AllAlertText)
 			);
@@ -87,26 +87,6 @@ public class ShortcutsActivity extends Activity
 
     public void onAboutClick(View v)
     {
-		Context c = getApplicationContext();
-		String versionName;
-
-		try
-		{
-			versionName = c.getPackageManager().
-				getPackageInfo(c.getPackageName(), 0 ).versionName;
-		}
-		catch(Exception e)
-		{
-			versionName = "Unknown";
-		}
-
-		String msg = "Version: " + versionName + "\n\n" +
-			getResources().getString(R.string.AboutAlertMessage);
-
-		About.ShowDialog(
-			this,
-            getResources().getString(R.string.AboutAlertTitle),
-            msg
-			);
+		About.onAboutClick(this, v);
 	}
 }

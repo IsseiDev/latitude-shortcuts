@@ -105,7 +105,7 @@ public class Launcher
 		context.startActivity(intent);
 	}
 
-	public void CreateShortcut(Context context)
+	public Intent GetShortcut(Context context)
 	{
 		Intent shortcut = new
 			Intent("com.android.launcher.action.INSTALL_SHORTCUT");
@@ -123,7 +123,12 @@ public class Launcher
 		shortcut.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE,
 			icon);
 
-		context.sendBroadcast(shortcut);
+		return shortcut;
+	}
+
+	public void CreateShortcut(Context context)
+	{
+		context.sendBroadcast(GetShortcut(context));
 	}
 
 	public void ShowDialog(Context context)
@@ -148,5 +153,4 @@ public class Launcher
 		((TextView) alertDialog.findViewById(android.R.id.message)).
 			setMovementMethod(LinkMovementMethod.getInstance());
 	}
-
 }

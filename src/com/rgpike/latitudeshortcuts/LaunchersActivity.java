@@ -38,48 +38,31 @@ public class LaunchersActivity extends Activity
 		launchers = new LauncherCollection(this);
 	}
 
-
 	public void onLaunchClick(View v)
 	{
 		switch (v.getId())
 			{
 			case R.id.LaunchCheckinButton:
-				launchers.getLauncher(LauncherCollection.mapCheckin).LaunchIntent(this);
+				launchers.getLauncher(
+					LauncherCollection.mapCheckin).LaunchIntent(this);
 				break;
 			case R.id.LaunchListButton:
-				launchers.getLauncher(LauncherCollection.mapList).LaunchIntent(this);
+				launchers.getLauncher(
+					LauncherCollection.mapList).LaunchIntent(this);
 				break;
 			case R.id.LaunchPlacesButton:
-				launchers.getLauncher(LauncherCollection.mapPlaces).LaunchIntent(this);
+				launchers.getLauncher(
+					LauncherCollection.mapPlaces).LaunchIntent(this);
 				break;
 			case R.id.LaunchHistoryButton:
-				launchers.getLauncher(LauncherCollection.mapHistory).LaunchIntent(this);
+				launchers.getLauncher(
+					LauncherCollection.mapHistory).LaunchIntent(this);
 				break;
 			}
 	}
 
     public void onAboutClick(View v)
     {
-		Context c = getApplicationContext();
-		String versionName;
-
-		try
-		{
-			versionName = c.getPackageManager().
-				getPackageInfo(c.getPackageName(), 0 ).versionName;
-		}
-		catch(Exception e)
-		{
-			versionName = "Unknown";
-		}
-
-		String msg = "Version: " + versionName + "\n\n" +
-			getResources().getString(R.string.AboutAlertMessage);
-
-		About.ShowDialog(
-			this,
-            getResources().getString(R.string.AboutAlertTitle),
-            msg
-			);
+		About.onAboutClick(this, v);
 	}
 }

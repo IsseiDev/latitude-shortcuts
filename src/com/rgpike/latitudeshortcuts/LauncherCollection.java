@@ -60,7 +60,6 @@ public class LauncherCollection
 		}
 
 		return launcher;
-		
 	}
 
 	private void LoadLaunchers(Context context)
@@ -74,7 +73,8 @@ public class LauncherCollection
 			context.getResources().getString(R.string.LatitudeCheckinURI),
 			context.getResources().getString(R.string.TitleCheckin),
 			String.format(
-				context.getResources().getString(R.string.InstalledAlertMessage),
+				context.getResources().
+					getString(R.string.InstalledAlertMessage),
 				context.getResources().getString(R.string.TitleCheckin))
 			);
 		l.put(LauncherCollection.mapCheckin, launcher);
@@ -86,7 +86,8 @@ public class LauncherCollection
 			context.getResources().getString(R.string.LatitudePlacesURI),
 			context.getResources().getString(R.string.TitlePlaces),
 			String.format(
-				context.getResources().getString(R.string.InstalledAlertMessage),
+				context.getResources().
+					getString(R.string.InstalledAlertMessage),
 				context.getResources().getString(R.string.TitlePlaces))
 			);
 		l.put(LauncherCollection.mapPlaces, launcher);
@@ -98,7 +99,8 @@ public class LauncherCollection
 			context.getResources().getString(R.string.LatitudeListURI),
 			context.getResources().getString(R.string.TitleList),
 			String.format(
-				context.getResources().getString(R.string.InstalledAlertMessage),
+				context.getResources().
+					getString(R.string.InstalledAlertMessage),
 				context.getResources().getString(R.string.TitleList))
 			);
 		l.put(LauncherCollection.mapList, launcher);
@@ -110,7 +112,8 @@ public class LauncherCollection
 			context.getResources().getString(R.string.LatitudeHistoryURI),
 			context.getResources().getString(R.string.TitleHistory),
 			String.format(
-				context.getResources().getString(R.string.InstalledAlertMessage),
+				context.getResources().
+					getString(R.string.InstalledAlertMessage),
 				context.getResources().getString(R.string.TitleHistory))
 			);
 		l.put(LauncherCollection.mapHistory, launcher);

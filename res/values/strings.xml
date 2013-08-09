@@ -3,7 +3,14 @@
     <string name="app_name">Latitude Shortcuts</string>
 
     <string name="title">Latitude Shortcuts</string>
+
+	<string name="widget_checkin">Latitude Check In</string>
+	<string name="widget_list">Latitude Friends</string>
+	<string name="widget_history">Latitude History</string>
+	<string name="widget_places">Latitude Places</string>
+
     <string name="about">About</string>
+
 
 	<string name="Description">Create Google Latitude shortcuts on your home screen by choosing from the shortcuts below. Choose All Shortcuts for the entire collection.
 		</string>

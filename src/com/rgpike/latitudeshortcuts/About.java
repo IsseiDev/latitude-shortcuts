@@ -13,7 +13,7 @@ import android.app.AlertDialog;
 
 public class About
 {
-	public static void ShowDialog(Context context, String title, String message)
+	public static void ShowDialog(Context context, int iconRes, String title, String message)
 	{
 		final SpannableString s = new SpannableString(message);
 		Linkify.addLinks(s, Linkify.ALL);
@@ -21,6 +21,7 @@ public class About
 		AlertDialog alertDialog = new AlertDialog.Builder(context).create();
 		alertDialog.setTitle(title);
 		alertDialog.setMessage(s);
+		alertDialog.setIcon(iconRes);
 		alertDialog.setButton(context.getResources().getString(R.string.OK),
 			new DialogInterface.OnClickListener()
 			{
@@ -33,5 +34,30 @@ public class About
 
 		((TextView) alertDialog.findViewById(android.R.id.message)).
 			setMovementMethod(LinkMovementMethod.getInstance());
+	}
+
+    public static void onAboutClick(Context context, View v)
+    {
+		String versionName;
+
+		try
+		{
+			versionName = context.getPackageManager().
+				getPackageInfo(context.getPackageName(), 0 ).versionName;
+		}
+		catch(Exception e)
+		{
+			versionName = "Unknown";
+		}
+
+		String msg = "Version: " + versionName + "\n\n" +
+			context.getResources().getString(R.string.AboutAlertMessage);
+
+		ShowDialog(
+			context,
+			R.drawable.ic_launcher,
+            context.getResources().getString(R.string.AboutAlertTitle),
+            msg
+			);
 	}
 }

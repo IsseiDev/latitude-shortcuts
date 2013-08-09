@@ -23,5 +23,45 @@
         <activity android:name=".ShortcutsActivity" />
         <activity android:name=".LaunchersActivity" />
 
+		<activity android:name=".WidgetCheckin"
+			android:label="@string/widget_checkin"
+        	android:icon="@drawable/ic_checkin" >
+			>
+			<intent-filter>
+                <action android:name="android.intent.action.CREATE_SHORTCUT" />
+                <category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+
+		<activity android:name=".WidgetList"
+			android:label="@string/widget_list"
+        	android:icon="@drawable/ic_list" >
+			>
+			<intent-filter>
+                <action android:name="android.intent.action.CREATE_SHORTCUT" />
+                <category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+
+		<activity android:name=".WidgetHistory"
+			android:label="@string/widget_history"
+        	android:icon="@drawable/ic_history" >
+			>
+			<intent-filter>
+                <action android:name="android.intent.action.CREATE_SHORTCUT" />
+                <category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+
+		<activity android:name=".WidgetPlaces"
+			android:label="@string/widget_places"
+        	android:icon="@drawable/ic_places" >
+			>
+			<intent-filter>
+                <action android:name="android.intent.action.CREATE_SHORTCUT" />
+                <category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+
     </application>
 </manifest> 
