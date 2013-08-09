@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Latitude Check In</string>
+    <string name="app_name">Latitude Shortcut Creator</string>
 
-    <string name="title">Latitude Check In Shortcut Creator</string>
+    <string name="title">Latitude Shortcut Creator</string>
     <string name="about">About</string>
 
 	<string name="Description">This application will create a Check In shortcut on your desktop to be used for directly invoking a Google Latitude Check In.</string>

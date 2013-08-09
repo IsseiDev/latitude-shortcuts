@@ -1,4 +1,4 @@
-package com.rgpike.latitudecheckin;
+package com.rgpike.latitudeshortcuts;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -11,7 +11,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.view.View;
 
-public class LatitudeCheckIn extends Activity
+public class LatitudeShortcuts extends Activity
 {
     /** Called when the activity is first created. */
     @Override
