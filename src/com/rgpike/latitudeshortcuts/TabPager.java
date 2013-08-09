@@ -1,6 +1,6 @@
+
 package com.rgpike.latitudeshortcuts;
 
-import android.app.Activity;
 import android.os.Bundle;
 
 import java.util.List;
@@ -23,129 +23,111 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import android.util.Log;
 
-public abstract class TabPager extends FragmentActivity implements TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener
-{
-	public class TabSet
-	{
-		public TabSpec tabSpec;
-		public Class fragmentClass;
-	}
+public abstract class TabPager extends FragmentActivity implements TabHost.OnTabChangeListener,
+        ViewPager.OnPageChangeListener {
+    public class TabSet {
+        public TabSpec tabSpec;
 
-	private static final String TAG = "TabPager";
-
-	public abstract TabHost getTabHost();
-	public abstract TabSet[] getTabSet();
-	public abstract int getViewPagerId();
-
-	private ViewPager mViewPager;
-
-	private class PagerAdapter extends FragmentPagerAdapter
-	{
-		private List<Fragment> fragments;
-
-		public PagerAdapter(FragmentManager fm, List<Fragment> fragments) {
-			super(fm);
-			this.fragments = fragments;
-		}
-
-		@Override
-		public Fragment getItem(int position)
-		{
-			return fragments.get(position);
-		}
-
-		@Override
-		public int getCount()
-		{
-			return fragments.size();
-		}
-	}
-
-	private class TabFactory implements TabContentFactory
-	{
-		Context context;
-
-		public TabFactory(Context context)
-		{
-			this.context = context;
-		}
-
-		public View createTabContent(String s)
-		{
-			return new View(context);
-		}
-	}
-
-    @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
-		super.onCreate(savedInstanceState);
+        public Class<?> fragmentClass;
     }
 
-	/** Intializes TabHost, Fragments, ViewPager for execution */
-	public void startTabPager()
-	{
-		List<Fragment> fragments = new Vector<Fragment>();
-		FragmentManager fm;
-		fm = getSupportFragmentManager();
+    private static final String TAG = "TabPager";
 
-		for (TabSet tab : getTabSet())
-		{
-			TabSpec tabSpec = tab.tabSpec;
-			tabSpec.setContent(new TabFactory(this));
+    public abstract TabHost getTabHost();
 
-			Fragment f = fm.findFragmentByTag(tabSpec.getTag());
-			if (f != null)
-			{
-				if (f.isDetached() == false)
-				{
-					// Detach
-					FragmentTransaction ft =
-						getSupportFragmentManager().beginTransaction();
-					ft.detach(f);
-					ft.commit();
-					getSupportFragmentManager().executePendingTransactions();
-				}
-			}
+    public abstract TabSet[] getTabSet();
 
-			getTabHost().addTab(tabSpec);
+    public abstract int getViewPagerId();
 
-			f = Fragment.instantiate(this, tab.fragmentClass.getName());
+    private ViewPager mViewPager;
 
-			fragments.add(f);
-		}
+    private class PagerAdapter extends FragmentPagerAdapter {
+        private List<Fragment> fragments;
 
-		PagerAdapter pagerAdapter = new PagerAdapter(
-			getSupportFragmentManager(), fragments);
+        public PagerAdapter(FragmentManager fm, List<Fragment> fragments) {
+            super(fm);
+            this.fragments = fragments;
+        }
 
-		mViewPager = (ViewPager) findViewById(getViewPagerId());
-		mViewPager.setAdapter(pagerAdapter);
-		mViewPager.setOnPageChangeListener(this);
-	
-		Log.d(TAG, "All TabSpecs added to TabHost");
+        @Override
+        public Fragment getItem(int position) {
+            return fragments.get(position);
+        }
 
-		getTabHost().setOnTabChangedListener(this);
-	}
+        @Override
+        public int getCount() {
+            return fragments.size();
+        }
+    }
 
-	public void onTabChanged(String tag)
-	{
-		int pos = getTabHost().getCurrentTab();
-		mViewPager.setCurrentItem(pos);
-	}
+    private class TabFactory implements TabContentFactory {
+        Context context;
 
-	@Override
-	public void onPageSelected(int position)
-	{
-		getTabHost().setCurrentTab(position);
-	}
+        public TabFactory(Context context) {
+            this.context = context;
+        }
 
-	@Override
-	public void onPageScrollStateChanged(int state)
-	{
-	}
+        public View createTabContent(String s) {
+            return new View(context);
+        }
+    }
 
-	@Override
-	public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels)
-	{
-	}
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    /** Intializes TabHost, Fragments, ViewPager for execution */
+    public void startTabPager() {
+        List<Fragment> fragments = new Vector<Fragment>();
+        FragmentManager fm;
+        fm = getSupportFragmentManager();
+
+        for (TabSet tab : getTabSet()) {
+            TabSpec tabSpec = tab.tabSpec;
+            tabSpec.setContent(new TabFactory(this));
+
+            Fragment f = fm.findFragmentByTag(tabSpec.getTag());
+            if (f != null) {
+                if (f.isDetached() == false) {
+                    // Detach
+                    FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                    ft.detach(f);
+                    ft.commit();
+                    getSupportFragmentManager().executePendingTransactions();
+                }
+            }
+
+            getTabHost().addTab(tabSpec);
+
+            f = Fragment.instantiate(this, tab.fragmentClass.getName());
+
+            fragments.add(f);
+        }
+
+        PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager(), fragments);
+
+        mViewPager = (ViewPager)findViewById(getViewPagerId());
+        mViewPager.setAdapter(pagerAdapter);
+        mViewPager.setOnPageChangeListener(this);
+
+        Log.d(TAG, "All TabSpecs added to TabHost");
+
+        getTabHost().setOnTabChangedListener(this);
+    }
+
+    public void onTabChanged(String tag) {
+        int pos = getTabHost().getCurrentTab();
+        mViewPager.setCurrentItem(pos);
+    }
+
+    public void onPageSelected(int position) {
+        getTabHost().setCurrentTab(position);
+    }
+
+    public void onPageScrollStateChanged(int state) {
+    }
+
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+    }
 }
