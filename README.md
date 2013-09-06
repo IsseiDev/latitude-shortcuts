@@ -14,7 +14,7 @@ On September 19, 2012, a Google Maps update removed the popular Latitude shortcu
 
 This app installed a shortcut to that old functionality along with a few other shortcuts. A very basic app, but it got the job done.
 
-The app was published to the Play Store until Google shuttered Latitude in August of 2013, at which point the app was removed.
+The app was published to the Play Store until Google shuttered Latitude in August of 2013, at which point the app was removed. Here's my [short Google+ post](https://plus.google.com/103825376061915763008/posts/5Bkvg8bRE9F) about the experience.
 
 The code has been given an MIT license and is being shared here.
 
